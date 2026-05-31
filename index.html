@@ -268,8 +268,9 @@
                     return response.json();
                 })
                 .then(data => {
+                    const statusText = (data && data.status) ? data.status.toUpperCase() : "ONLINE";
                     messageParagraph.style.color = "#2ecc71"; // Success Green
-                    messageParagraph.innerHTML = `<i class="fa-solid fa-circle-check"></i> Connected! Server Status: "${data.status.toUpperCase()}"`;
+                    messageParagraph.innerHTML = `<i class="fa-solid fa-circle-check"></i> Connected! Server Status: "${statusText}"`;
                 })
                 .catch(error => {
                     console.error(error);
@@ -317,10 +318,10 @@
                 }
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
                 responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
                 responseDiv.style.color = "#e74c3c";
-                responseDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Network communication timeout. Please check backend logs.';
+                responseDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
             });
         });
     </script>
