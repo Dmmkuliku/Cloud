@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raymond Tungaraza | Data Science & Analytics Portfolio</title>
+    <!-- FontAwesome Icons for Badges and UI Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Header & Navigation Bar -->
     <header>
         <nav>
             <div class="logo">RAYMOND<span>TUNGARAZA</span></div>
@@ -20,10 +23,12 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <!-- Theme Toggle Button Framework -->
                 <button class="theme-toggle-btn" id="theme-switcher" aria-label="Toggle Theme">
                     <i class="fa-solid fa-sun icon-sun"></i>
                     <i class="fa-solid fa-moon icon-moon"></i>
                 </button>
+                <!-- Mobile Hamburger Menu Button -->
                 <button class="menu-toggle" id="menu-icon" aria-label="Toggle Navigation Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -31,6 +36,7 @@
         </nav>
     </header>
 
+    <!-- Hero Identity Showcase Section -->
     <section class="hero" id="hero">
         <div class="hero-badge"><i class="fa-solid fa-chart-line"></i> Data Science Portfolio</div>
         <h1>Empowering Decisions Through <span class="gradient-text">Data Science</span></h1>
@@ -41,10 +47,12 @@
         <a href="#contact" class="cta-btn">Initiate Consultation <i class="fa-solid fa-arrow-right"></i></a>
     </section>
 
+    <!-- Technical Skills Matrix Section -->
     <section id="skills">
         <h2 class="section-title">Technical Skills & Expertise</h2>
         <div class="skills-grid-container">
             
+            <!-- Card 1: Machine Learning -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-brain text-gradient-1"></i> Machine Learning & Predictive Analytics</h4>
                 <div class="skills-container">
@@ -54,6 +62,7 @@
                 </div>
             </div>
 
+            <!-- Card 2: Statistical Computing -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-chart-pie text-gradient-2"></i> Statistical Computing & Modeling</h4>
                 <div class="skills-container">
@@ -63,6 +72,7 @@
                 </div>
             </div>
 
+            <!-- Card 3: Big Data & SQL -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-database text-gradient-3"></i> Big Data Infrastructure & SQL</h4>
                 <div class="skills-container">
@@ -72,6 +82,7 @@
                 </div>
             </div>
 
+            <!-- Card 4: Business Intelligence -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-chart-column text-gradient-4"></i> Data Visualization & BI Platforms</h4>
                 <div class="skills-container">
@@ -81,6 +92,7 @@
                 </div>
             </div>
 
+            <!-- Card 5: Systems & Backend -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-cubes text-gradient-1"></i> Systems & Backend Architecture</h4>
                 <div class="skills-container">
@@ -90,6 +102,7 @@
                 </div>
             </div>
 
+            <!-- Card 6: Cloud & UI Interfaces -->
             <div class="skill-category-card">
                 <h4><i class="fa-solid fa-laptop-code text-gradient-2"></i> Cloud Deployment & UI Interfaces</h4>
                 <div class="skills-container">
@@ -102,6 +115,7 @@
         </div>
     </section>
 
+    <!-- Qualifications Timeline Section -->
     <section id="qualifications">
         <h2 class="section-title">Qualifications & Experience</h2>
         <div class="timeline">
@@ -123,6 +137,7 @@
         </div>
     </section>
 
+    <!-- Projects Portfolio Layout Showcase -->
     <section id="projects">
         <h2 class="section-title">Operational Innovations</h2>
         <div class="projects-grid">
@@ -144,16 +159,19 @@
         </div>
     </section>
 
+    <!-- Communications, Navigation & Contact System -->
     <section id="contact">
         <h2 class="section-title">Connect Professionally</h2>
         <p class="section-subtitle">Changanyikeni, Ubungo • Dar es Salaam, Tanzania</p>
         
+        <!-- Live Async Status Check Wrapper -->
         <div class="status-container">
             <div id="api-status" class="status-banner">
                 <span class="pulse-dot"></span> Custom Render Backend Channel Active
             </div>
         </div>
 
+        <!-- Quick Integration Direct Launch Links -->
         <div class="quick-contact-container">
             <a href="https://wa.me/255655786630" class="quick-btn whatsapp-btn" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Raymond
@@ -163,6 +181,7 @@
             </a>
         </div>
 
+        <!-- Contact Form -->
         <form id="contactForm">
             <div class="input-group">
                 <input type="text" id="name" name="name" placeholder="Identity / Organization Name" required>
@@ -177,14 +196,17 @@
                 <i class="fa-solid fa-paper-plane"></i> Dispatch Transmission
             </button>
             
+            <!-- In-page status message feedback box -->
             <div id="formResponse" style="display: none; margin-top: 15px; padding: 10px; border-radius: 8px; font-weight: 600;"></div>
         </form>
     </section>
 
+    <!-- Document Terminal Footer -->
     <footer>
         <p>© 2026 Raymond Elphance Tungaraza. Data Science & Applied Computational Analytics.</p>
     </footer>
 
+    <!-- Light/Dark Mode Mechanism, Mobile Menu, and Live Render Production API Engine -->
     <script>
         // 1. Theme Engine Switching Management Logic
         const themeButton = document.getElementById('theme-switcher');
@@ -211,7 +233,7 @@
             });
         });
 
-        // 3. Asynchronous Form Engine (Connecting to your upcoming Render server)
+        // 3. Asynchronous Form Engine (Connecting to your live Render server URL)
         const form = document.getElementById('contactForm');
         const responseDiv = document.getElementById('formResponse');
 
@@ -229,9 +251,8 @@
                 message: document.getElementById('message').value
             };
 
-            // NOTE: Currently targeting localhost for local verification.
-            // We will switch this to your live Render URL in Step 3!
-            fetch('http://localhost:5000/api/contact', {
+            // UPDATED: Now securely pointing directly to your live production Render API link!
+            fetch('https://portfolio-backend-c4ey.onrender.com/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,7 +276,7 @@
                 console.log(error);
                 responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
                 responseDiv.style.color = "#e74c3c";
-                responseDiv.innerHTML = '<i class="fa-solid fa-server"></i> API Offline. Standing by for Step 2 (Render backend activation).';
+                responseDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Network communication timeout. Please check backend logs.';
             });
         });
     </script>
