@@ -176,6 +176,15 @@
         <h2 class="section-title">Connect Professionally</h2>
         <p class="section-subtitle text-highlight-blue">Changanyikeni, Dar es Salaam, Tanzania</p>
         
+        <!-- Live Connection Test Demo Card Module -->
+        <div class="card" style="margin: 0 auto 2rem auto; max-width: 450px; text-align: center; border: 2px dashed rgba(52, 152, 219, 0.4); padding: 1.5rem; border-radius: 8px;">
+            <h3>Backend API Demo</h3>
+            <button type="button" onclick="getBackendMessage()" style="margin-top: 10px; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; cursor: pointer; background: transparent; border: 2px solid #3498db; color: inherit;">
+                <i class="fa-solid fa-plug"></i> Test Backend Connection
+            </button>
+            <p id="api-message" style="margin-top: 15px; font-weight: 600; min-height: 20px;"></p>
+        </div>
+        
         <!-- Live Async Status Check Wrapper -->
         <div class="status-container">
             <div id="api-status" class="status-banner">
@@ -245,7 +254,31 @@
             });
         });
 
-        // 3. Asynchronous Form Engine (Connecting to your live Render server URL)
+        // 3. Live Connection API Demo Call Function
+        function getBackendMessage() {
+            const messageParagraph = document.getElementById('api-message');
+            
+            // Visual loading state setup
+            messageParagraph.style.color = "#3498db";
+            messageParagraph.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Fetching response parameters...';
+
+            fetch('https://portfolio-backend-c4ey.onrender.com/')
+                .then(response => {
+                    if (!response.ok) throw new Error("Network status execution fault");
+                    return response.json();
+                })
+                .then(data => {
+                    messageParagraph.style.color = "#2ecc71"; // Success Green
+                    messageParagraph.innerHTML = `<i class="fa-solid fa-circle-check"></i> Connected! Server Status: "${data.status.toUpperCase()}"`;
+                })
+                .catch(error => {
+                    console.error(error);
+                    messageParagraph.style.color = "#e74c3c"; // Error Red
+                    messageParagraph.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
+                });
+        }
+
+        // 4. Asynchronous Form Engine (Connecting to your live Render server URL)
         const form = document.getElementById('contactForm');
         const responseDiv = document.getElementById('formResponse');
 
