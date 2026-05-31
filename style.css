@@ -340,6 +340,17 @@ section {
 .border-glow-2:hover { border-color: #8b5cf6; box-shadow: 0 0 12px rgba(139, 92, 246, 0.15); }
 .border-glow-3:hover { border-color: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.15); }
 
+/* --- API Demo Card Component Styles --- */
+.card button {
+    transition: all 0.2s ease-in-out;
+}
+
+.card button:hover {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
 /* --- Contact Core Setup --- */
 #contact {
     max-width: 600px;
