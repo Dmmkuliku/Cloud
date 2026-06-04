@@ -129,25 +129,25 @@
                     <span class="tech-tag">Microsoft Excel (Advanced Visualizations/Pivots)</span>
                     <span class="tech-tag">Tableau</span>
                     <span class="tech-tag">Power BI</span>
-                    <span class="tech-tag">Git & GitHub </span>
+                    <span class="tech-tag">Git & GitHub</span>
                     <span class="tech-tag">Render</span>
                     <span class="tech-tag">Vercel</span>
-                    <span class="tech-tag">Linux/Unix Environments </span>
+                    <span class="tech-tag">Linux/Unix Environments</span>
                 </div>
             </div>
 
             <div class="skill-card border-glow-stats">
                 <div class="skill-icon-header stats-accent">
                     <i class="fa-solid fa-users-gear"></i>
-                    <h3>Methodologies & Soft Skills </h3>
+                    <h3>Methodologies & Soft Skills</h3>
                 </div>
                 <div class="tag-cloud">
-                    <span class="tech-tag">Technical System Training </span>
-                    <span class="tech-tag">Academic Coaching </span>
-                    <span class="tech-tag">Agile Development </span>
+                    <span class="tech-tag">Technical System Training</span>
+                    <span class="tech-tag">Academic Coaching</span>
+                    <span class="tech-tag">Agile Development</span>
                     <span class="tech-tag">UI/UX Optimization</span>
-                    <span class="tech-tag">Cross-functional Collaboration </span>
-                    <span class="tech-tag">Data-Driven Problem Solving </span>
+                    <span class="tech-tag">Cross-functional Collaboration</span>
+                    <span class="tech-tag">Data-Driven Problem Solving</span>
                 </div>
             </div>
         </div>
@@ -168,8 +168,8 @@
                     <i class="fa-solid fa-laptop-code"></i>
                 </div>
                 <div class="timeline-card">
-                    <span class="timeline-date">October 2025 - Present </span>
-                    <h3 class="timeline-role">Software Developer (Web Architecture) </h3>
+                    <span class="timeline-date">October 2025 - Present</span>
+                    <h3 class="timeline-role">Software Developer (Web Architecture)</h3>
                     <div class="timeline-institution">Balqees Investment | Dar es Salaam, Tanzania</div>
                     <ul class="content-list">
                         <li>Design, engineer, and continuously maintain highly responsive full-stack enterprise web ecosystems, guaranteeing clean database query optimizations, structural modularity, and rapid rendering capabilities.</li>
@@ -201,9 +201,9 @@
                     <i class="fa-solid fa-building-columns"></i>
                 </div>
                 <div class="timeline-card">
-                    <span class="timeline-date">Jul 2024 - Oct 2024 & Jul 2025 - Oct 2025 </span>
-                    <h3 class="timeline-role">Tax Officer (Field training) </h3>
-                    <div class="timeline-institution">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania </div>
+                    <span class="timeline-date">Jul 2024 - Oct 2024 & Jul 2025 - Oct 2025</span>
+                    <h3 class="timeline-role">Tax Officer (Field training)</h3>
+                    <div class="timeline-institution">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania</div>
                     <ul class="content-list">
                         <li>Executed end-to-end data extraction and comprehensive tax analysis workflows across high-volume institutional financial records to identify compliance discrepancies and optimize systemic revenue collections.</li>
                         <li>Conducted rigorous data cleaning, database validation, and data entity verification protocols on highly complex tax datasets, significantly maximizing institutional reporting integrity and minimizing internal audit cycles.</li>
@@ -230,8 +230,8 @@
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <div class="timeline-card">
-                    <span class="timeline-date">Oct 2023 - Oct 2026 </span>
-                    <h3 class="timeline-role">Bachelor of Science in Data Science </h3>
+                    <span class="timeline-date">Oct 2023 - Oct 2026</span>
+                    <h3 class="timeline-role">Bachelor of Science in Data Science</h3>
                     <div class="timeline-institution">Eastern Africa Statistical Training Centre (EASTC) | Dar es Salaam, Tanzania</div>
                     <p class="project-text" style="margin-top: 1rem; font-weight: 700; color: var(--accent-blue);">
                         Core Academic Focus: 
@@ -311,9 +311,9 @@
                         <i class="fa-solid fa-id-card"></i> Personal Records
                     </div>
                     <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Date of Birth:</strong> October 1, 2003</p>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Nationality:</strong> Tanzanian </p>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Nationality:</strong> Tanzanian</p>
                     <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Marital Status:</strong> Single</p>
-                    <p style="font-size: 0.95rem;"><strong>Languages:</strong> English, Swahili </p>
+                    <p style="font-size: 0.95rem;"><strong>Languages:</strong> English, Swahili</p>
                 </div>
 
                 <div class="console-card">
@@ -326,7 +326,7 @@
                         <div class="console-title">api_handshake_service.py</div>
                     </div>
                     <div class="console-body">
-                        <p class="console-log-text">> ready to initialize secure secure communication handshake tunnel...</p>
+                        <p class="console-log-text" id="consoleLogText">> ready to check backend API availability status...</p>
                         <button class="btn-console" id="pingBtn">
                             <i class="fa-solid fa-terminal"></i> run_api_handshake.sh
                         </button>
@@ -372,7 +372,7 @@
 
                     <div class="hud-feedback-banner" id="hudBanner"></div>
 
-                    <button type="submit" class="btn btn-submit">
+                    <button type="submit" class="btn btn-submit" id="submitBtn">
                         <i class="fa-solid fa-paper-plane"></i> Transmit Secure Request
                     </button>
                 </form>
@@ -392,6 +392,9 @@
     </footer>
 
     <script>
+        // CONFIGURATION: Replace this value with your actual live Render Web Service URL endpoint (e.g., https://your-app.onrender.com/api/contact)
+        const RENDER_API_ENDPOINT = "https://your-backend-service.onrender.com/api/contact";
+
         // Hamburger Menu Mobile Viewport Controller Mechanisms
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -424,35 +427,73 @@
             htmlElement.setAttribute('data-theme', savedTheme);
         }
 
-        // Script Sandbox Shell Interface Simulator Runner
+        // Live API Health Check Handshake Controller
         const pingBtn = document.getElementById('pingBtn');
         const consoleResponse = document.getElementById('consoleResponse');
+        const consoleLogText = document.getElementById('consoleLogText');
 
-        pingBtn.addEventListener('click', () => {
+        pingBtn.addEventListener('click', async () => {
             consoleResponse.className = 'console-response-box running-state';
-            consoleResponse.innerHTML = '[CONNECTING] Querying raymond_tungaraza_server APIs...<br>[PROCESSING] Mapping internal dataset schemas...';
-            
-            setTimeout(() => {
+            consoleResponse.innerHTML = '[CONNECTING] Initializing request handshake to Render server...<br>[PROCESSING] Checking API service uptime logs...';
+            pingBtn.disabled = true;
+
+            try {
+                // Extracts base URL path to ping the server entrypoint
+                const baseUrl = RENDER_API_ENDPOINT.substring(0, RENDER_API_ENDPOINT.lastIndexOf('/')) || RENDER_API_ENDPOINT;
+                const response = await fetch(baseUrl, { method: 'GET' });
+                
                 consoleResponse.className = 'console-response-box success-state';
-                consoleResponse.innerHTML = '>> CODE 200: PIPELINE ENCRYPTED<br>>> Analytics workspace initialized successfully.<br>>> Environment validation completed.';
-            }, 1200);
+                consoleResponse.innerHTML = `>> STATUS CODE ${response.status}: ONLINE<br>>> Handshake verified. Endpoints are securely listening.<br>>> Ready to process application payloads.`;
+                consoleLogText.innerText = "> System check connection: ACTIVE";
+            } catch (error) {
+                consoleResponse.className = 'console-response-box error-state';
+                consoleResponse.innerHTML = `>> API ERROR: UNABLE TO CONTACT BACKEND<br>>> Details: ${error.message}<br>>> Note: If using Render free tier, server spin up might take up to 60 seconds. Please try again shortly.`;
+            } finally {
+                pingBtn.disabled = false;
+            }
         });
 
-        // Contact Transmission Feedback Logic Engine
+        // Live Contact Form Data Transmission Engine (Render Integration)
         const contactForm = document.getElementById('contactForm');
         const hudBanner = document.getElementById('hudBanner');
+        const submitBtn = document.getElementById('submitBtn');
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            // Extract values safely
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const message = document.getElementById('userMessage').value;
+
+            // UI Loading Feedback Initialization
             hudBanner.className = 'hud-feedback-banner status-processing';
-            hudBanner.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Encrypting parameters... Broadcasting request packet.';
-            
-            setTimeout(() => {
-                hudBanner.className = 'hud-feedback-banner status-complete';
-                hudBanner.innerHTML = '<i class="fa-solid fa-circle-check"></i> Package delivered successfully. Raymond will prioritize your request.';
-                contactForm.reset();
-            }, 1500);
+            hudBanner.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Encrypting payload parameters... Transmitting data to Render API.';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(RENDER_API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    hudBanner.className = 'hud-feedback-banner status-complete';
+                    hudBanner.innerHTML = '<i class="fa-solid fa-circle-check"></i> Package delivered successfully! Render endpoint acknowledged request.';
+                    contactForm.reset();
+                } else {
+                    throw new Error(`Server returned error code ${response.status}`);
+                }
+            } catch (error) {
+                hudBanner.className = 'hud-feedback-banner status-error';
+                hudBanner.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Transmission failed. Error: ${error.message}`;
+                console.error("Backend Error Tracker:", error);
+            } finally {
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
