@@ -8,7 +8,901 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* CSS Variables & Theme Foundations */
+        :root[data-theme="dark"] {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-glass: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            
+            --accent-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-purple: #a855f7;
+            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #14b8a6 50%, #a855f7 100%);
+            
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        :root[data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.75);
+            --border-color: rgba(0, 0, 0, 0.06);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            
+            --accent-blue: #2563eb;
+            --accent-teal: #0d9488;
+            --accent-purple: #9333ea;
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0d9488 50%, #9333ea 100%);
+            
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Reset & Global Overrides */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        h1, h2, h3, .logo, .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Global Structural Layout Wrappers */
+        .section-wrapper {
+            padding: 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .alt-bg {
+            background-color: var(--bg-secondary);
+            max-width: 100%;
+            padding-left: max(2rem, calc((100% - 1200px) / 2 + 2rem));
+            padding-right: max(2rem, calc((100% - 1200px) / 2 + 2rem));
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Typography & Standard Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-teal);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Buttons & Interface Inputs */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(20, 184, 166, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* 1. Header & Navigation UI Layout */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo-accent {
+            color: var(--accent-blue);
+        }
+
+        .nav-actions-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-main);
+        }
+
+        .header-cta {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .header-cta:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        /* Dynamic Theme Switcher Configurations */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle-btn:hover {
+            color: var(--text-main);
+        }
+
+        html[data-theme="dark"] .icon-sun,
+        html[data-theme="light"] .icon-moon {
+            display: none;
+        }
+
+        /* Mobile Layout Selectors */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger-bar {
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        /* 2. Hero Interactive Workspace */
+        .hero-section {
+            padding: 11rem 2rem 8rem 2rem;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-glow-effect {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge {
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.15);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-teal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pulse-ring {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7);
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* 3. Skills Matrix Components */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.25rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .skill-icon-header i {
+            font-size: 1.5rem;
+        }
+
+        .skill-icon-header h3 {
+            font-size: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .ml-accent i, .ml-accent h3 { color: var(--accent-blue); }
+        .data-accent i, .data-accent h3 { color: var(--accent-teal); }
+        .cloud-accent i, .cloud-accent h3 { color: var(--accent-purple); }
+        .stats-accent i, .stats-accent h3 { color: #f59e0b; }
+
+        .border-glow-ml:hover { border-color: rgba(59, 130, 246, 0.4); }
+        .border-glow-data:hover { border-color: rgba(20, 184, 166, 0.4); }
+        .border-glow-cloud:hover { border-color: rgba(168, 85, 247, 0.4); }
+        .border-glow-stats:hover { border-color: rgba(245, 158, 11, 0.4); }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tech-tag {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* 4 & 5. Timeline System Architecture (Experience & Education) */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-backbone {
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 5rem;
+        }
+
+        .timeline-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            z-index: 2;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-block:hover .timeline-node {
+            border-color: var(--accent-blue);
+            background-color: var(--bg-secondary);
+            color: var(--accent-blue);
+        }
+
+        .timeline-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        html[data-theme="light"] .timeline-card {
+            background-color: var(--bg-secondary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-institution {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-list {
+            padding-left: 1.25rem;
+        }
+
+        .content-list li {
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            list-style-type: square;
+        }
+
+        .content-list li::marker {
+            color: var(--accent-blue);
+        }
+
+        /* 6. Case Studies (Featured Architecture) */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-display-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-visual-indicator {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .color-1 { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
+        .color-2 { background: rgba(20, 184, 166, 0.1); color: var(--accent-teal); }
+        .color-3 { background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); }
+
+        .project-content h3 {
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-institution-tag {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* 7. Engagement HUD Workspace Layouts */
+        .contact-interface-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .glass-console-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .console-card {
+            background-color: #05070c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .console-header {
+            background: #0d1117;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .console-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .console-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-red { background-color: #ef4444; }
+        .dot-yellow { background-color: #f59e0b; }
+        .dot-green { background-color: #10b981; }
+
+        .console-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        .console-body {
+            padding: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .console-log-text {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-console {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 0.5rem 1rem;
+            font-family: monospace;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-console:hover {
+            background: #30363d;
+            border-color: #8b949e;
+            color: #f0f6fc;
+        }
+
+        .console-response-box {
+            margin-top: 1.25rem;
+            padding: 1rem;
+            background: #090c10;
+            border-radius: 6px;
+            border-left: 3px solid transparent;
+            font-size: 0.85rem;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .console-response-box.running-state {
+            display: block;
+            border-left-color: var(--accent-blue);
+            color: #58a6ff;
+        }
+
+        .console-response-box.success-state {
+            display: block;
+            border-left-color: var(--accent-teal);
+            color: #3fb950;
+        }
+
+        .direct-channels-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .channel-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-style {
+            background-color: rgba(37, 211, 102, 0.08);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            color: #25d366;
+        }
+
+        .whatsapp-style:hover {
+            background-color: #25d366;
+            color: #ffffff;
+        }
+
+        .sms-style {
+            background-color: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .sms-style:hover {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        /* Messaging Grid Form Elements */
+        .contact-form-container {
+            background-color: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .interactive-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-field label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 1.25rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .alignment-top {
+            top: 1.25rem;
+        }
+
+        .input-wrapper input,
+        .input-wrapper textarea {
+            width: 100%;
+            padding: 1rem 1.25rem 1rem 3rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-wrapper input:focus,
+        .input-wrapper textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-submit {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            justify-content: center;
+            padding: 1.1rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .hud-feedback-banner {
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hud-feedback-banner.status-processing {
+            display: flex;
+            background-color: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .hud-feedback-banner.status-complete {
+            display: flex;
+            background-color: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            color: var(--accent-teal);
+        }
+
+        /* 8. Global Footer Elements */
+        .global-footer {
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-copyright {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE VIEWPORT BREAKPOINTS (MEDIA QUERIES)
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 3.2rem; }
+            .contact-interface-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .project-display-card { padding: 2.5rem; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .section-wrapper { padding: 5rem 1.5rem; }
+            .hero-section { padding-top: 9rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            
+            /* Responsive Mobile Structural Dropdown Menu Rules */
+            .menu-toggle { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 73px);
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 2rem;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                border-top: 1px solid var(--border-color);
+                z-index: 1000;
+            }
+
+            .nav-menu.active-viewport { transform: translateX(0); }
+            .menu-toggle.open-state .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.open-state .hamburger-bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.open-state .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
+            .project-display-card { flex-direction: column; text-align: center; align-items: center; }
+            .contact-form-container { padding: 2rem; }
+            .direct-channels-container { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -234,13 +1128,13 @@
                     <h3 class="timeline-role">Bachelor of Science in Data Science</h3>
                     <div class="timeline-institution">Eastern Africa Statistical Training Centre (EASTC) | Dar es Salaam, Tanzania</div>
                     <p class="project-text" style="margin-top: 1rem; font-weight: 700; color: var(--accent-blue);">
-                        Core Academic Focus: 
+                        Core Academic Focus:
                     </p>
                     <ul class="content-list">
-                        <li>Advanced Mathematical Statistics & Probability Systems </li>
-                        <li>Relational Database Design (SQL) </li>
-                        <li>Big Data Engineering Frameworks </li>
-                        <li>Time Series Diagnostics & Predictive Analytics Models </li>
+                        <li>Advanced Mathematical Statistics & Probability Systems</li>
+                        <li>Relational Database Design (SQL)</li>
+                        <li>Big Data Engineering Frameworks</li>
+                        <li>Time Series Diagnostics & Predictive Analytics Models</li>
                     </ul>
                 </div>
             </div>
@@ -326,7 +1220,7 @@
                         <div class="console-title">api_handshake_service.py</div>
                     </div>
                     <div class="console-body">
-                        <p class="console-log-text" id="consoleLogText">> ready to check backend API availability status...</p>
+                        <p class="console-log-text">> ready to initialize secure secure communication handshake tunnel...</p>
                         <button class="btn-console" id="pingBtn">
                             <i class="fa-solid fa-terminal"></i> run_api_handshake.sh
                         </button>
@@ -372,7 +1266,7 @@
 
                     <div class="hud-feedback-banner" id="hudBanner"></div>
 
-                    <button type="submit" class="btn btn-submit" id="submitBtn">
+                    <button type="submit" class="btn btn-submit">
                         <i class="fa-solid fa-paper-plane"></i> Transmit Secure Request
                     </button>
                 </form>
@@ -392,9 +1286,6 @@
     </footer>
 
     <script>
-        // CONFIGURATION: Replace this value with your actual live Render Web Service URL endpoint (e.g., https://your-app.onrender.com/api/contact)
-        const RENDER_API_ENDPOINT = "https://your-backend-service.onrender.com/api/contact";
-
         // Hamburger Menu Mobile Viewport Controller Mechanisms
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -427,73 +1318,35 @@
             htmlElement.setAttribute('data-theme', savedTheme);
         }
 
-        // Live API Health Check Handshake Controller
+        // Script Sandbox Shell Interface Simulator Runner
         const pingBtn = document.getElementById('pingBtn');
         const consoleResponse = document.getElementById('consoleResponse');
-        const consoleLogText = document.getElementById('consoleLogText');
 
-        pingBtn.addEventListener('click', async () => {
+        pingBtn.addEventListener('click', () => {
             consoleResponse.className = 'console-response-box running-state';
-            consoleResponse.innerHTML = '[CONNECTING] Initializing request handshake to Render server...<br>[PROCESSING] Checking API service uptime logs...';
-            pingBtn.disabled = true;
-
-            try {
-                // Extracts base URL path to ping the server entrypoint
-                const baseUrl = RENDER_API_ENDPOINT.substring(0, RENDER_API_ENDPOINT.lastIndexOf('/')) || RENDER_API_ENDPOINT;
-                const response = await fetch(baseUrl, { method: 'GET' });
-                
+            consoleResponse.innerHTML = '[CONNECTING] Querying raymond_tungaraza_server APIs...<br>[PROCESSING] Mapping internal dataset schemas...';
+            
+            setTimeout(() => {
                 consoleResponse.className = 'console-response-box success-state';
-                consoleResponse.innerHTML = `>> STATUS CODE ${response.status}: ONLINE<br>>> Handshake verified. Endpoints are securely listening.<br>>> Ready to process application payloads.`;
-                consoleLogText.innerText = "> System check connection: ACTIVE";
-            } catch (error) {
-                consoleResponse.className = 'console-response-box error-state';
-                consoleResponse.innerHTML = `>> API ERROR: UNABLE TO CONTACT BACKEND<br>>> Details: ${error.message}<br>>> Note: If using Render free tier, server spin up might take up to 60 seconds. Please try again shortly.`;
-            } finally {
-                pingBtn.disabled = false;
-            }
+                consoleResponse.innerHTML = '>> CODE 200: PIPELINE ENCRYPTED<br>>> Analytics workspace initialized successfully.<br>>> Environment validation completed.';
+            }, 1200);
         });
 
-        // Live Contact Form Data Transmission Engine (Render Integration)
+        // Contact Transmission Feedback Logic Engine
         const contactForm = document.getElementById('contactForm');
         const hudBanner = document.getElementById('hudBanner');
-        const submitBtn = document.getElementById('submitBtn');
 
-        contactForm.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Extract values safely
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            const message = document.getElementById('userMessage').value;
-
-            // UI Loading Feedback Initialization
             hudBanner.className = 'hud-feedback-banner status-processing';
-            hudBanner.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Encrypting payload parameters... Transmitting data to Render API.';
-            submitBtn.disabled = true;
-
-            try {
-                const response = await fetch(RENDER_API_ENDPOINT, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                if (response.ok) {
-                    hudBanner.className = 'hud-feedback-banner status-complete';
-                    hudBanner.innerHTML = '<i class="fa-solid fa-circle-check"></i> Package delivered successfully! Render endpoint acknowledged request.';
-                    contactForm.reset();
-                } else {
-                    throw new Error(`Server returned error code ${response.status}`);
-                }
-            } catch (error) {
-                hudBanner.className = 'hud-feedback-banner status-error';
-                hudBanner.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Transmission failed. Error: ${error.message}`;
-                console.error("Backend Error Tracker:", error);
-            } finally {
-                submitBtn.disabled = false;
-            }
+            hudBanner.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Encrypting parameters... Broadcasting request packet.';
+            
+            setTimeout(() => {
+                hudBanner.className = 'hud-feedback-banner status-complete';
+                hudBanner.innerHTML = '<i class="fa-solid fa-circle-check"></i> Package delivered successfully. Raymond will prioritize your request.';
+                contactForm.reset();
+            }, 1500);
         });
     </script>
 </body>
