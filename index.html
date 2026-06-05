@@ -203,7 +203,7 @@
             gap: 2rem;
         }
 
-        .nav-menu {
+        nav ul {
             display: flex;
             align-items: center;
             gap: 2.5rem;
@@ -674,20 +674,7 @@
             border-radius: 6px;
             border-left: 3px solid transparent;
             font-size: 0.85rem;
-            display: none;
             line-height: 1.5;
-        }
-
-        .console-response-box.running-state {
-            display: block;
-            border-left-color: var(--accent-blue);
-            color: #58a6ff;
-        }
-
-        .console-response-box.success-state {
-            display: block;
-            border-left-color: var(--accent-teal);
-            color: #3fb950;
         }
 
         .direct-channels-container {
@@ -821,20 +808,6 @@
             gap: 0.75rem;
         }
 
-        .hud-feedback-banner.status-processing {
-            display: flex;
-            background-color: rgba(59, 130, 246, 0.08);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            color: var(--accent-blue);
-        }
-
-        .hud-feedback-banner.status-complete {
-            display: flex;
-            background-color: rgba(20, 184, 166, 0.08);
-            border: 1px solid rgba(20, 184, 166, 0.2);
-            color: var(--accent-teal);
-        }
-
         /* 8. Global Footer Elements */
         .global-footer {
             border-top: 1px solid var(--border-color);
@@ -876,8 +849,8 @@
             .hero-subtitle { font-size: 1.2rem; }
             
             /* Responsive Mobile Structural Dropdown Menu Rules */
-            .menu-toggle { display: flex; }
-            .nav-menu {
+            #menu-icon { display: flex; }
+            nav ul {
                 position: fixed;
                 top: 73px;
                 left: 0;
@@ -893,10 +866,10 @@
                 z-index: 1000;
             }
 
-            .nav-menu.active-viewport { transform: translateX(0); }
-            .menu-toggle.open-state .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .menu-toggle.open-state .hamburger-bar:nth-child(2) { opacity: 0; }
-            .menu-toggle.open-state .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            nav ul.active { transform: translateX(0); }
+            #menu-icon.open-state .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            #menu-icon.open-state .hamburger-bar:nth-child(2) { opacity: 0; }
+            #menu-icon.open-state .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
             
             .project-display-card { flex-direction: column; text-align: center; align-items: center; }
             .contact-form-container { padding: 2rem; }
@@ -913,7 +886,7 @@
             </div>
             
             <div class="nav-actions-wrapper">
-                <ul class="nav-menu" id="navMenu">
+                <ul id="navMenu">
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#skills" class="nav-link">Core Skills</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -922,12 +895,12 @@
                     <li><a href="#contact" class="nav-link header-cta">Connect</a></li>
                 </ul>
 
-                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                <button class="theme-toggle-btn" id="theme-switcher" aria-label="Toggle Theme">
                     <i class="fa-solid fa-sun icon-sun"></i>
                     <i class="fa-solid fa-moon icon-moon"></i>
                 </button>
 
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <button class="menu-toggle" id="menu-icon" aria-label="Toggle Menu">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -1220,11 +1193,11 @@
                         <div class="console-title">api_handshake_service.py</div>
                     </div>
                     <div class="console-body">
-                        <p class="console-log-text">> ready to initialize secure secure communication handshake tunnel...</p>
-                        <button class="btn-console" id="pingBtn">
+                        <p class="console-log-text">> ready to initialize secure communication handshake tunnel...</p>
+                        <button class="btn-console" onclick="getBackendMessage()">
                             <i class="fa-solid fa-terminal"></i> run_api_handshake.sh
                         </button>
-                        <div class="console-response-box" id="consoleResponse"></div>
+                        <div class="console-response-box" id="api-message">> Waiting for handshake execution query...</div>
                     </div>
                 </div>
 
@@ -1241,30 +1214,30 @@
             <div class="contact-form-container">
                 <form class="interactive-form" id="contactForm">
                     <div class="form-field">
-                        <label for="userName">Full Name / Organization</label>
+                        <label for="name">Full Name / Organization</label>
                         <div class="input-wrapper">
                             <i class="fa-solid fa-user field-icon"></i>
-                            <input type="text" id="userName" placeholder="Your name or organization" required>
+                            <input type="text" id="name" placeholder="Your name or organization" required>
                         </div>
                     </div>
 
                     <div class="form-field">
-                        <label for="userEmail">Secure Contact Email Address</label>
+                        <label for="email">Secure Contact Email Address</label>
                         <div class="input-wrapper">
                             <i class="fa-solid fa-envelope field-icon"></i>
-                            <input type="email" id="userEmail" placeholder="name@domain.com" required>
+                            <input type="email" id="email" placeholder="name@domain.com" required>
                         </div>
                     </div>
 
                     <div class="form-field">
-                        <label for="userMessage">Project Objectives / Collaboration Scope</label>
+                        <label for="message">Project Objectives / Collaboration Scope</label>
                         <div class="input-wrapper">
                             <i class="fa-solid fa-comment-dots field-icon alignment-top"></i>
-                            <textarea id="userMessage" rows="5" placeholder="Detail your data analysis challenges or full-stack software requirements..." required></textarea>
+                            <textarea id="message" rows="5" placeholder="Detail your data analysis challenges or full-stack software requirements..." required></textarea>
                         </div>
                     </div>
 
-                    <div class="hud-feedback-banner" id="hudBanner"></div>
+                    <div class="hud-feedback-banner" id="formResponse"></div>
 
                     <button type="submit" class="btn btn-submit">
                         <i class="fa-solid fa-paper-plane"></i> Transmit Secure Request
@@ -1286,67 +1259,102 @@
     </footer>
 
     <script>
-        // Hamburger Menu Mobile Viewport Controller Mechanisms
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        // 1. Theme Engine Switching Management Logic
+        const themeButton = document.getElementById('theme-switcher');
+        const htmlElement = document.documentElement;
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('open-state');
-            navMenu.classList.toggle('active-viewport');
+        themeButton.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', targetTheme);
         });
 
-        document.querySelectorAll('.nav-link').forEach(link => {
+        // 2. Mobile Layout Nav Open-Close Toggle Function
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinksList = document.querySelector('nav ul');
+
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('open-state');
+            navLinksList.classList.toggle('active');
+        });
+
+        // Close navigation menu when a link is clicked
+        document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
-                menuToggle.classList.remove('open-state');
-                navMenu.classList.remove('active-viewport');
+                menuIcon.classList.remove('open-state');
+                navLinksList.classList.remove('active');
             });
         });
 
-        // Theme Switcher Context Setting Engine
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
+        // 3. Live Connection API Demo Call Function (UPDATED FOR TEXT RESPONSES)
+        function getBackendMessage() {
+            const messageParagraph = document.getElementById('api-message');
+            
+            // Visual loading state setup
+            messageParagraph.style.display = "block";
+            messageParagraph.style.color = "#3498db";
+            messageParagraph.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Fetching response parameters...';
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('portfolio-theme', newTheme);
-        });
-
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme) {
-            htmlElement.setAttribute('data-theme', savedTheme);
+            fetch('https://portfolio-backend-c4ey.onrender.com/')
+                .then(response => {
+                    if (!response.ok) throw new Error("Network status execution fault");
+                    return response.text(); // <-- Changed from .json() to .text() to match your server response
+                })
+                .then(text => {
+                    messageParagraph.style.color = "#2ecc71"; // Success Green
+                    messageParagraph.innerHTML = `<i class="fa-solid fa-circle-check"></i> Connected! Server Status: "${text}"`;
+                })
+                .catch(error => {
+                    console.error(error);
+                    messageParagraph.style.color = "#e74c3c"; // Error Red
+                    messageParagraph.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
+                });
         }
 
-        // Script Sandbox Shell Interface Simulator Runner
-        const pingBtn = document.getElementById('pingBtn');
-        const consoleResponse = document.getElementById('consoleResponse');
+        // 4. Asynchronous Form Engine (Connecting to your live Render server URL)
+        const form = document.getElementById('contactForm');
+        const responseDiv = document.getElementById('formResponse');
 
-        pingBtn.addEventListener('click', () => {
-            consoleResponse.className = 'console-response-box running-state';
-            consoleResponse.innerHTML = '[CONNECTING] Querying raymond_tungaraza_server APIs...<br>[PROCESSING] Mapping internal dataset schemas...';
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
             
-            setTimeout(() => {
-                consoleResponse.className = 'console-response-box success-state';
-                consoleResponse.innerHTML = '>> CODE 200: PIPELINE ENCRYPTED<br>>> Analytics workspace initialized successfully.<br>>> Environment validation completed.';
-            }, 1200);
-        });
+            responseDiv.style.display = "flex";
+            responseDiv.style.backgroundColor = "rgba(52, 152, 219, 0.1)";
+            responseDiv.style.color = "#3498db";
+            responseDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing data on custom backend...';
 
-        // Contact Transmission Feedback Logic Engine
-        const contactForm = document.getElementById('contactForm');
-        const hudBanner = document.getElementById('hudBanner');
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
 
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            hudBanner.className = 'hud-feedback-banner status-processing';
-            hudBanner.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Encrypting parameters... Broadcasting request packet.';
-            
-            setTimeout(() => {
-                hudBanner.className = 'hud-feedback-banner status-complete';
-                hudBanner.innerHTML = '<i class="fa-solid fa-circle-check"></i> Package delivered successfully. Raymond will prioritize your request.';
-                contactForm.reset();
-            }, 1500);
+            fetch('https://portfolio-backend-c4ey.onrender.com/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(async (response) => {
+                if (response.ok) {
+                    responseDiv.style.backgroundColor = "rgba(46, 204, 113, 0.1)";
+                    responseDiv.style.color = "#2ecc71";
+                    responseDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i> Transmission saved successfully on Raymond\'s Render database!';
+                    form.reset();
+                } else {
+                    responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
+                    responseDiv.style.color = "#e74c3c";
+                    responseDiv.innerHTML = "Backend server processing exception encountered.";
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
+                responseDiv.style.color = "#e74c3c";
+                responseDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
+            });
         });
     </script>
 </body>
