@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Raymond Elphance Tungaraza — Data Scientist and Full-Stack Developer in Dar es Salaam, Tanzania.">
+    <meta name="description" content="Raymond Elphance Tungaraza — Data Scientist in Dar es Salaam. Statistical modeling, predictive analytics, and data-driven systems.">
     <meta name="author" content="Raymond Elphance Tungaraza">
-    <meta name="theme-color" content="#1B4F72">
-    <title>Raymond Elphance Tungaraza | Data Scientist Portfolio</title>
+    <meta name="theme-color" content="#0F3D68">
+    <title>Raymond Elphance Tungaraza | Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
-    <div class="bg-shapes" aria-hidden="true">
-        <span class="blob blob-1"></span>
-        <span class="blob blob-2"></span>
-        <span class="ring"></span>
-    </div>
+    <div class="mesh" aria-hidden="true"></div>
 
     <header class="site-header">
         <nav class="nav" aria-label="Primary">
-            <a class="logo" href="#home">RAYMOND<span>.TUNGARAZA</span></a>
+            <a class="logo" href="#home">Raymond <span>Tungaraza</span></a>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Core Skills</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Connect</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="theme-btn" id="theme-switcher" type="button" aria-label="Toggle theme">
                     <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
                     <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
                 </button>
+                <a class="nav-hire" href="#contact">Hire me</a>
                 <button class="menu-btn" id="menu-icon" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
                     <span></span><span></span><span></span>
                 </button>
@@ -46,82 +42,96 @@
     </header>
 
     <main id="main">
-        <!-- HERO -->
         <section class="hero" id="home">
-            <div class="hero-main">
-                <p class="status-pill"><span class="dot"></span> Available for high-impact roles</p>
-                <h1>
-                    <span class="name-line">Raymond Elphance</span>
-                    <span class="name-line accent">Tungaraza</span>
-                </h1>
-                <p class="role">Data Scientist &amp; Full-Stack Developer</p>
-                <p class="intro">
-                    I use statistical modeling and data engineering to extract, clean, and turn
-                    unstructured datasets into useful business intelligence. I also design web
-                    applications and cloud deployments, with a strong base in mathematics and advanced statistics.
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="live"></span> Data Scientist · EASTC · Dar es Salaam</p>
+                <h1>Raymond Elphance Tungaraza</h1>
+                <p class="headline">I turn raw institutional data into models, insights, and working systems employers can trust.</p>
+                <p class="lede">
+                    My work covers the full data science path: extraction and cleaning, statistical and predictive modeling,
+                    clear reporting, and delivery through web applications and cloud platforms.
+                    I bring a strong foundation in mathematics and advanced statistics, with hands-on experience
+                    in credit risk, tax analytics, hospital operations, and business systems.
                 </p>
-                <div class="hero-meta">
-                    <a href="https://maps.google.com/?q=Dar+es+Salaam,+Tanzania" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Dar es Salaam, Tanzania
-                    </a>
-                    <a href="tel:+255655786630"><i class="fa-solid fa-phone" aria-hidden="true"></i> +255 655 786 630</a>
-                    <a href="mailto:raymondtungaraza20@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> raymondtungaraza20@gmail.com</a>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projects">See data projects</a>
+                    <a class="btn btn-ghost" href="#experience">Review experience</a>
+                    <a class="btn btn-ghost" href="mailto:raymondtungaraza20@gmail.com">Email Raymond</a>
                 </div>
-                <div class="hero-ctas">
-                    <a class="btn btn-primary" href="#experience">View experience</a>
-                    <a class="btn btn-soft" href="#contact">Personal information</a>
-                </div>
+                <ul class="proof-strip" aria-label="Data science strengths">
+                    <li><strong>Modeling</strong><span>Regression · ordinal logistic · predictive analytics</span></li>
+                    <li><strong>Pipeline</strong><span>Extract · clean · validate · analyze · report</span></li>
+                    <li><strong>Delivery</strong><span>Dashboards · APIs · cloud apps on Vercel &amp; Render</span></li>
+                </ul>
             </div>
 
-            <aside class="hero-panel" id="about">
-                <h2>Personal information</h2>
-                <dl class="info-list">
-                    <div>
-                        <dt>Date of birth</dt>
-                        <dd>October 1, 2003</dd>
-                    </div>
-                    <div>
-                        <dt>Nationality</dt>
-                        <dd>Tanzanian</dd>
-                    </div>
-                    <div>
-                        <dt>Marital status</dt>
-                        <dd>Single</dd>
-                    </div>
-                    <div>
-                        <dt>Languages</dt>
-                        <dd>English, Swahili</dd>
-                    </div>
+            <aside class="profile-card" id="about">
+                <div class="profile-top">
+                    <p class="profile-role">Data Scientist &amp; Full-Stack Developer</p>
+                    <h2>Candidate profile</h2>
+                </div>
+                <dl class="profile-grid">
+                    <div><dt>Location</dt><dd>Dar es Salaam, Tanzania</dd></div>
+                    <div><dt>Phone</dt><dd><a href="tel:+255655786630">+255 655 786 630</a></dd></div>
+                    <div><dt>Email</dt><dd><a href="mailto:raymondtungaraza20@gmail.com">raymondtungaraza20@gmail.com</a></dd></div>
+                    <div><dt>Education</dt><dd>BSc Data Science, EASTC</dd></div>
+                    <div><dt>Date of birth</dt><dd>October 1, 2003</dd></div>
+                    <div><dt>Nationality</dt><dd>Tanzanian</dd></div>
+                    <div><dt>Languages</dt><dd>English, Swahili</dd></div>
+                    <div><dt>Status</dt><dd>Single · Open to roles</dd></div>
                 </dl>
-                <p class="panel-note">
-                    Based in Dar es Salaam. Open to roles and collaborations that need both
-                    data science depth and practical software delivery.
-                </p>
+                <div class="profile-tools">
+                    <span>Python</span><span>R</span><span>SQL</span><span>Scikit-Learn</span><span>Tableau</span><span>Power BI</span>
+                </div>
             </aside>
         </section>
 
-        <!-- SKILLS -->
+        <section class="section" id="approach">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="kicker">How I work</p>
+                    <h2>A practical data science workflow</h2>
+                    <p class="section-lead">Employers get more than notebooks — they get analysis that moves into decisions and systems.</p>
+                </div>
+                <ol class="workflow">
+                    <li>
+                        <span class="step">01</span>
+                        <h3>Frame the question</h3>
+                        <p>Clarify the decision, the metrics that matter, and the data that can answer it.</p>
+                    </li>
+                    <li>
+                        <span class="step">02</span>
+                        <h3>Extract &amp; clean</h3>
+                        <p>Pull data from records and databases, fix quality issues, and keep entities consistent.</p>
+                    </li>
+                    <li>
+                        <span class="step">03</span>
+                        <h3>Model &amp; validate</h3>
+                        <p>Apply statistical and predictive methods — regression, ordinal logistic, and related analytics.</p>
+                    </li>
+                    <li>
+                        <span class="step">04</span>
+                        <h3>Communicate</h3>
+                        <p>Translate findings into reports, dashboards, and recommendations stakeholders can use.</p>
+                    </li>
+                    <li>
+                        <span class="step">05</span>
+                        <h3>Ship securely</h3>
+                        <p>Put results into applications and cloud services with careful handling of sensitive data.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
         <section class="band" id="skills">
             <div class="wrap">
-                <div class="section-top">
+                <div class="section-head">
                     <p class="kicker">Competencies</p>
                     <h2>Core skills &amp; toolkit</h2>
+                    <p class="section-lead">Built around data science first — with the engineering skills to put analysis into production.</p>
                 </div>
                 <div class="skills-bento">
-                    <article class="skill-box box-a">
-                        <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Programming languages</h3>
-                        <ul class="chip-list">
-                            <li>Python (Pandas, NumPy, Scikit-Learn)</li>
-                            <li>Python (Matplotlib, Seaborn)</li>
-                            <li>R</li>
-                            <li>SQL (PostgreSQL, MySQL)</li>
-                            <li>PHP (Laravel, Yii2 Framework)</li>
-                            <li>JavaScript (Vite Framework)</li>
-                            <li>C++</li>
-                            <li>HTML5 &amp; CSS3</li>
-                        </ul>
-                    </article>
-                    <article class="skill-box box-b">
+                    <article class="skill-box featured">
                         <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data science &amp; analytics</h3>
                         <ul class="chip-list">
                             <li>Data Extraction</li>
@@ -135,7 +145,20 @@
                             <li>Data Entity Management</li>
                         </ul>
                     </article>
-                    <article class="skill-box box-c">
+                    <article class="skill-box">
+                        <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Programming languages</h3>
+                        <ul class="chip-list">
+                            <li>Python (Pandas, NumPy, Scikit-Learn)</li>
+                            <li>Python (Matplotlib, Seaborn)</li>
+                            <li>R</li>
+                            <li>SQL (PostgreSQL, MySQL)</li>
+                            <li>PHP (Laravel, Yii2 Framework)</li>
+                            <li>JavaScript (Vite Framework)</li>
+                            <li>C++</li>
+                            <li>HTML5 &amp; CSS3</li>
+                        </ul>
+                    </article>
+                    <article class="skill-box">
                         <h3><i class="fa-solid fa-cloud" aria-hidden="true"></i> Tools &amp; cloud platforms</h3>
                         <ul class="chip-list">
                             <li>Microsoft Excel (Advanced Visualizations/Pivots)</li>
@@ -149,7 +172,7 @@
                             <li>Linux/Unix Environments</li>
                         </ul>
                     </article>
-                    <article class="skill-box box-d">
+                    <article class="skill-box">
                         <h3><i class="fa-solid fa-handshake" aria-hidden="true"></i> Methodologies &amp; soft skills</h3>
                         <ul class="chip-list">
                             <li>Technical System Training</li>
@@ -164,75 +187,164 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section class="wrap section" id="experience">
-            <div class="section-top">
-                <p class="kicker">Chronology</p>
-                <h2>Professional experience</h2>
-            </div>
-            <div class="jobs">
-                <article class="job">
-                    <div class="job-side">
-                        <time datetime="2025-10">October 2025 – Present</time>
-                        <span class="job-mark"></span>
-                    </div>
-                    <div class="job-body">
-                        <h3>Software Developer (Web Architecture)</h3>
-                        <p class="org">Balqees Investment | Dar es Salaam, Tanzania</p>
-                        <ul>
-                            <li>Design, engineer, and continuously maintain highly responsive full-stack enterprise web ecosystems, guaranteeing clean database query optimizations, structural modularity, and rapid rendering capabilities.</li>
-                            <li>Oversee and manage secure automated continuous integration and deployment pipelines (CI/CD) utilizing specialized environments like Render and Vercel, increasing uptime metrics and web performance scaling.</li>
-                            <li>Architect relational entity-relationship database backend models, prioritizing completely secure modern extraction techniques, strict data parameters, and bulletproof web API integrations.</li>
-                            <li>Directed deep visual user interface optimization and responsiveness tracks, systematically troubleshooting core layout bottlenecks to dramatically maximize accessibility and dark mode user readability metrics.</li>
-                        </ul>
-                    </div>
-                </article>
+        <section class="section" id="experience">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="kicker">Chronology</p>
+                    <h2>Professional experience</h2>
+                </div>
+                <div class="jobs">
+                    <article class="job">
+                        <div class="job-side">
+                            <time datetime="2025-10">October 2025 – Present</time>
+                            <span class="pill">Current</span>
+                        </div>
+                        <div class="job-body">
+                            <h3>Software Developer (Web Architecture)</h3>
+                            <p class="org">Balqees Investment | Dar es Salaam, Tanzania</p>
+                            <ul>
+                                <li>Design, engineer, and continuously maintain highly responsive full-stack enterprise web ecosystems, guaranteeing clean database query optimizations, structural modularity, and rapid rendering capabilities.</li>
+                                <li>Oversee and manage secure automated continuous integration and deployment pipelines (CI/CD) utilizing specialized environments like Render and Vercel, increasing uptime metrics and web performance scaling.</li>
+                                <li>Architect relational entity-relationship database backend models, prioritizing completely secure modern extraction techniques, strict data parameters, and bulletproof web API integrations.</li>
+                                <li>Directed deep visual user interface optimization and responsiveness tracks, systematically troubleshooting core layout bottlenecks to dramatically maximize accessibility and dark mode user readability metrics.</li>
+                            </ul>
+                        </div>
+                    </article>
 
-                <article class="job">
-                    <div class="job-side">
-                        <time datetime="2024-10">October 2024 – July 2026</time>
-                        <span class="job-mark"></span>
-                    </div>
-                    <div class="job-body">
-                        <h3>Academic Coach &amp; Professional Trainer</h3>
-                        <p class="org">Millicent Igogo Coaching | Dar es Salaam, Tanzania</p>
-                        <ul>
-                            <li>Delivered advanced, specialized academic training tracks across rigorous computing architecture, logic foundations, and mathematical statistics curriculums to optimize professional-grade competence.</li>
-                            <li>Formulated and implemented structured interactive learning repositories, technical code labs, and custom numeric evaluation metrics leveraging Python and R to elevate student practical capabilities.</li>
-                            <li>Analyzed granular student performance parameters via descriptive statistical models to diagnose deep conceptual barriers, formulating agile target methodologies that measurably enhanced educational outcome metrics.</li>
-                        </ul>
-                    </div>
-                </article>
+                    <article class="job">
+                        <div class="job-side">
+                            <time datetime="2024-10">October 2024 – July 2026</time>
+                        </div>
+                        <div class="job-body">
+                            <h3>Academic Coach &amp; Professional Trainer</h3>
+                            <p class="org">Millicent Igogo Coaching | Dar es Salaam, Tanzania</p>
+                            <ul>
+                                <li>Delivered advanced, specialized academic training tracks across rigorous computing architecture, logic foundations, and mathematical statistics curriculums to optimize professional-grade competence.</li>
+                                <li>Formulated and implemented structured interactive learning repositories, technical code labs, and custom numeric evaluation metrics leveraging Python and R to elevate student practical capabilities.</li>
+                                <li>Analyzed granular student performance parameters via descriptive statistical models to diagnose deep conceptual barriers, formulating agile target methodologies that measurably enhanced educational outcome metrics.</li>
+                            </ul>
+                        </div>
+                    </article>
 
-                <article class="job">
-                    <div class="job-side">
-                        <time datetime="2024-07">Jul 2024 – Oct 2024 &amp; Jul 2025 – Oct 2025</time>
-                        <span class="job-mark"></span>
-                    </div>
-                    <div class="job-body">
-                        <h3>Tax Officer (Field training)</h3>
-                        <p class="org">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania</p>
-                        <ul>
-                            <li>Executed end-to-end data extraction and comprehensive tax analysis workflows across high-volume institutional financial records to identify compliance discrepancies and optimize systemic revenue collections.</li>
-                            <li>Conducted rigorous data cleaning, database validation, and data entity verification protocols on highly complex tax datasets, significantly maximizing institutional reporting integrity and minimizing internal audit cycles.</li>
-                            <li>Performed systematic tax examinations and statistical audits on structural corporate and individual asset filings, guaranteeing completely strict alignment with regional revenue laws and compliance frameworks.</li>
-                            <li>Leveraged advanced analytical Excel macros and statistical indexing frameworks to map systemic patterns within historical tax logs, enabling team leaders to promptly identify potential financial risk metrics.</li>
-                        </ul>
-                    </div>
-                </article>
+                    <article class="job">
+                        <div class="job-side">
+                            <time datetime="2024-07">Jul 2024 – Oct 2024 &amp; Jul 2025 – Oct 2025</time>
+                            <span class="pill soft">Field training</span>
+                        </div>
+                        <div class="job-body">
+                            <h3>Tax Officer (Field training)</h3>
+                            <p class="org">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania</p>
+                            <ul>
+                                <li>Executed end-to-end data extraction and comprehensive tax analysis workflows across high-volume institutional financial records to identify compliance discrepancies and optimize systemic revenue collections.</li>
+                                <li>Conducted rigorous data cleaning, database validation, and data entity verification protocols on highly complex tax datasets, significantly maximizing institutional reporting integrity and minimizing internal audit cycles.</li>
+                                <li>Performed systematic tax examinations and statistical audits on structural corporate and individual asset filings, guaranteeing completely strict alignment with regional revenue laws and compliance frameworks.</li>
+                                <li>Leveraged advanced analytical Excel macros and statistical indexing frameworks to map systemic patterns within historical tax logs, enabling team leaders to promptly identify potential financial risk metrics.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section class="band" id="education">
+        <section class="band" id="projects">
             <div class="wrap">
-                <div class="section-top">
+                <div class="section-head">
+                    <p class="kicker">Selected work</p>
+                    <h2>Projects that show the science in practice</h2>
+                    <p class="section-lead">From machine learning credit scoring to tax analytics and hospital data systems.</p>
+                </div>
+                <div class="project-stage">
+                    <article class="project-card highlight">
+                        <div class="project-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
+                        <div>
+                            <div class="method-row">
+                                <span>Predictive modeling</span><span>Credit risk</span><span>FastAPI</span>
+                            </div>
+                            <h3>Ushirika — SME Credit Risk Platform</h3>
+                            <p class="project-tag">Machine Learning · FastAPI · Vite</p>
+                            <p>
+                                An automated credit ecosystem for Tanzanian SMEs. It includes a FastAPI machine-learning credit scoring backend and a Vite portal for lenders, SMEs, and administrators. Deployed with the API on Render and the frontend on Vercel.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://ushirika-sme-portal.vercel.app" target="_blank" rel="noopener noreferrer">Live portal</a>
+                                <a href="https://github.com/Dmmkuliku/ushirika-sme-credit" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                        <div>
+                            <div class="method-row">
+                                <span>Operational data</span><span>Role-based access</span><span>Laravel</span>
+                            </div>
+                            <h3>Savannah Health System</h3>
+                            <p class="project-tag">Hospital Management · Laravel</p>
+                            <p>
+                                A hospital information system for Tanzanian facilities covering patient registration, clinical care, pharmacy, wards, billing in TZS, and staff roles. Built with Laravel and available in English and Kiswahili, with cloud deployment on Render and Vercel.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://savannah-health-system.vercel.app" target="_blank" rel="noopener noreferrer">Live system</a>
+                                <a href="https://github.com/Dmmkuliku/savannah-health-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+                        <div>
+                            <div class="method-row">
+                                <span>Tax analytics</span><span>Data extraction</span><span>Process design</span>
+                            </div>
+                            <h3>KodiPop System Architecture</h3>
+                            <p class="project-tag">Tanzania Revenue Authority (TRA) Automation Initiative</p>
+                            <p>
+                                An advanced innovation proposal engineered to streamline, track, and optimize tax metrics through customized data extraction architectures. The platform layout maps structural human resources blueprints alongside secure back-end automation processes, completely scoped and scheduled to fit a rigorous 6-week execution timeline.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
+                        <div>
+                            <div class="method-row">
+                                <span>Sales data</span><span>Inventory analytics</span><span>Reporting</span>
+                            </div>
+                            <h3>Blessing Mall Supermarket Management System</h3>
+                            <p class="project-tag">Commercial Management Platform</p>
+                            <p>
+                                A modern enterprise inventory and sales tracking framework deployed for Blessing Mall. Features integrated barcode scanning parameters, full point-of-sale calculations, real-time stock levels logging, and automatic month-end sales data visualization reports.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
+                        <div>
+                            <div class="method-row">
+                                <span>Statistical insight</span><span>Data cleaning</span><span>Health operations</span>
+                            </div>
+                            <h3>Healthcare Analytics &amp; Hospital Operations Tracker</h3>
+                            <p class="project-tag">Data-Driven Resource Analytics</p>
+                            <p>
+                                An analytical system model focused on parsing complex hospital database frameworks. Leverages comprehensive data cleaning protocols to identify operational gaps, streamline resource management tracking logs, and support clinical stakeholders with high-integrity statistical insight.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <div class="wrap">
+                <div class="section-head">
                     <p class="kicker">Credentials</p>
                     <h2>Education history</h2>
                 </div>
                 <article class="edu-card">
                     <div class="edu-when">
                         <time datetime="2023-10">Oct 2023 – Oct 2026</time>
+                        <p class="edu-badge">In progress</p>
                     </div>
                     <div class="edu-copy">
                         <h3>Bachelor of Science in Data Science</h3>
@@ -249,86 +361,13 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section class="wrap section" id="projects">
-            <div class="section-top">
-                <p class="kicker">Case studies</p>
-                <h2>Featured architecture</h2>
-            </div>
-            <div class="project-stage">
-                <article class="project-card">
-                    <div class="project-icon tone-1"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
-                    <div>
-                        <h3>Ushirika — SME Credit Risk Platform</h3>
-                        <p class="project-tag">Machine Learning · FastAPI · Vite</p>
-                        <p>
-                            An automated credit ecosystem for Tanzanian SMEs. It includes a FastAPI machine-learning credit scoring backend and a Vite portal for lenders, SMEs, and administrators. Deployed with the API on Render and the frontend on Vercel.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://ushirika-sme-portal.vercel.app" target="_blank" rel="noopener noreferrer">Live portal</a>
-                            <a href="https://github.com/Dmmkuliku/ushirika-sme-credit" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-icon tone-2"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
-                    <div>
-                        <h3>Savannah Health System</h3>
-                        <p class="project-tag">Hospital Management · Laravel</p>
-                        <p>
-                            A hospital information system for Tanzanian facilities covering patient registration, clinical care, pharmacy, wards, billing in TZS, and staff roles. Built with Laravel and available in English and Kiswahili, with cloud deployment on Render and Vercel.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://savannah-health-system.vercel.app" target="_blank" rel="noopener noreferrer">Live system</a>
-                            <a href="https://github.com/Dmmkuliku/savannah-health-system" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-icon tone-3"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
-                    <div>
-                        <h3>KodiPop System Architecture</h3>
-                        <p class="project-tag">Tanzania Revenue Authority (TRA) Automation Initiative</p>
-                        <p>
-                            An advanced innovation proposal engineered to streamline, track, and optimize tax metrics through customized data extraction architectures. The platform layout maps structural human resources blueprints alongside secure back-end automation processes, completely scoped and scheduled to fit a rigorous 6-week execution timeline.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-icon tone-1"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
-                    <div>
-                        <h3>Blessing Mall Supermarket Management System</h3>
-                        <p class="project-tag">Commercial Management Platform</p>
-                        <p>
-                            A modern enterprise inventory and sales tracking framework deployed for Blessing Mall. Features integrated barcode scanning parameters, full point-of-sale calculations, real-time stock levels logging, and automatic month-end sales data visualization reports.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-icon tone-2"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
-                    <div>
-                        <h3>Healthcare Analytics &amp; Hospital Operations Tracker</h3>
-                        <p class="project-tag">Data-Driven Resource Analytics</p>
-                        <p>
-                            An analytical system model focused on parsing complex hospital database frameworks. Leverages comprehensive data cleaning protocols to identify operational gaps, streamline resource management tracking logs, and support clinical stakeholders with high-integrity statistical insight.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
         <section class="band contact-band" id="contact">
             <div class="wrap">
-                <div class="section-top">
-                    <p class="kicker">Engagement</p>
-                    <h2>Initialize connection</h2>
+                <div class="section-head">
+                    <p class="kicker">Next step</p>
+                    <h2>Let’s discuss a data science role or project</h2>
+                    <p class="section-lead">Available for employment, internship, or contract work in analytics and applied data systems.</p>
                 </div>
-
                 <div class="contact-layout">
                     <div class="contact-left">
                         <div class="console">
@@ -345,13 +384,12 @@
                                 </button>
                             </div>
                         </div>
-
                         <div class="channel-row">
                             <a class="channel whatsapp" href="https://wa.me/255655786630" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp
+                                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
                             </a>
                             <a class="channel sms" href="sms:+255655786630">
-                                <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> Send SMS
+                                <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> SMS
                             </a>
                         </div>
                     </div>
@@ -361,25 +399,25 @@
                             <label for="name">Full name / organization</label>
                             <div class="input-wrap">
                                 <i class="fa-solid fa-user field-icon" aria-hidden="true"></i>
-                                <input type="text" id="name" name="name" required maxlength="120" placeholder="Your name or organization">
+                                <input type="text" id="name" name="name" required maxlength="120" placeholder="Hiring manager or organization">
                             </div>
                         </div>
                         <div class="field">
-                            <label for="email">Secure contact email address</label>
+                            <label for="email">Work email</label>
                             <div class="input-wrap">
                                 <i class="fa-solid fa-envelope field-icon" aria-hidden="true"></i>
-                                <input type="email" id="email" name="email" required maxlength="160" placeholder="you@email.com">
+                                <input type="email" id="email" name="email" required maxlength="160" placeholder="you@company.com">
                             </div>
                         </div>
                         <div class="field">
-                            <label for="message">Project objectives / collaboration scope</label>
+                            <label for="message">Role or project details</label>
                             <div class="input-wrap">
                                 <i class="fa-solid fa-message field-icon top" aria-hidden="true"></i>
-                                <textarea id="message" name="message" required maxlength="4000" placeholder="Tell me what you need help with..."></textarea>
+                                <textarea id="message" name="message" required maxlength="4000" placeholder="Share the role, dataset context, or problem you want solved..."></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-wide">
-                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Transmit secure request
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send message
                         </button>
                         <div id="formResponse" class="form-banner" hidden role="status" aria-live="polite"></div>
                     </form>
@@ -390,7 +428,7 @@
 
     <footer class="site-footer">
         <p class="copy">© <span id="year">2026</span> Raymond Elphance Tungaraza. All rights reserved.</p>
-        <p class="disclaimer">Data Science Architecture &amp; Engineering Portfolio. Custom engineered with separation paradigms, secure endpoints, and modular code tracking layouts.</p>
+        <p class="disclaimer">Data Scientist portfolio — statistical modeling, analytics systems, and secure cloud delivery.</p>
     </footer>
 
     <script>
@@ -450,10 +488,9 @@
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-
             responseDiv.hidden = false;
             responseDiv.className = 'form-banner is-pending';
-            responseDiv.textContent = 'Processing data on custom backend...';
+            responseDiv.textContent = 'Sending…';
 
             const payload = {
                 name: document.getElementById('name').value.trim(),
@@ -463,26 +500,23 @@
 
             fetch('https://portfolio-backend-c4ey.onrender.com/api/contact', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(payload)
             })
                 .then(async (response) => {
                     if (response.ok) {
                         responseDiv.className = 'form-banner is-ok';
-                        responseDiv.textContent = "Transmission saved successfully on Raymond's Render database!";
+                        responseDiv.textContent = 'Message received. Thank you — I will respond soon.';
                         form.reset();
                     } else {
                         responseDiv.className = 'form-banner is-error';
-                        responseDiv.textContent = 'Backend server processing exception encountered.';
+                        responseDiv.textContent = 'Could not send right now. Please email or WhatsApp me.';
                     }
                 })
                 .catch((error) => {
                     console.error(error);
                     responseDiv.className = 'form-banner is-error';
-                    responseDiv.textContent = 'Communication error. Render container sleeping or offline.';
+                    responseDiv.textContent = 'Network issue. Please email or WhatsApp me.';
                 });
         });
     </script>
