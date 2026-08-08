@@ -1,1360 +1,480 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raymond Elphance Tungaraza | Data Scientist Portfolio</title>
+    <meta name="description" content="Raymond Elphance Tungaraza — Data Scientist in Dar es Salaam. Predictive modeling, responsible AI, secure analytics systems, and applied statistical computing.">
+    <meta name="author" content="Raymond Elphance Tungaraza">
+    <meta name="theme-color" content="#0B1F2A">
+    <title>Raymond Tungaraza | Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* CSS Variables & Theme Foundations */
-        :root[data-theme="dark"] {
-            --bg-primary: #0b0f19;
-            --bg-secondary: #111827;
-            --bg-glass: rgba(17, 24, 39, 0.7);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            
-            --accent-blue: #3b82f6;
-            --accent-teal: #14b8a6;
-            --accent-purple: #a855f7;
-            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #14b8a6 50%, #a855f7 100%);
-            
-            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-            --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        :root[data-theme="light"] {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --bg-glass: rgba(255, 255, 255, 0.75);
-            --border-color: rgba(0, 0, 0, 0.06);
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            
-            --accent-blue: #2563eb;
-            --accent-teal: #0d9488;
-            --accent-purple: #9333ea;
-            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0d9488 50%, #9333ea 100%);
-            
-            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(0, 0, 0, 0.03);
-        }
-
-        /* Reset & Global Overrides */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        h1, h2, h3, .logo, .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Global Structural Layout Wrappers */
-        .section-wrapper {
-            padding: 7rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .alt-bg {
-            background-color: var(--bg-secondary);
-            max-width: 100%;
-            padding-left: max(2rem, calc((100% - 1200px) / 2 + 2rem));
-            padding-right: max(2rem, calc((100% - 1200px) / 2 + 2rem));
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Typography & Standard Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-tag {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-teal);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-heading {
-            font-size: 2.5rem;
-            letter-spacing: -0.5px;
-            margin-bottom: 1rem;
-        }
-
-        .section-divider {
-            width: 60px;
-            height: 4px;
-            background: var(--gradient-primary);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Buttons & Interface Inputs */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: #ffffff;
-            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.25);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(20, 184, 166, 0.35);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
-            transform: translateY(-2px);
-        }
-
-        /* 1. Header & Navigation UI Layout */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--bg-glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            color: var(--text-main);
-        }
-
-        .logo-accent {
-            color: var(--accent-blue);
-        }
-
-        .nav-actions-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--text-main);
-        }
-
-        .header-cta {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            padding: 0.5rem 1.25rem;
-            border-radius: 6px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .header-cta:hover {
-            background: var(--accent-blue);
-            color: #ffffff;
-        }
-
-        /* Dynamic Theme Switcher Configurations */
-        .theme-toggle-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-toggle-btn:hover {
-            color: var(--text-main);
-        }
-
-        html[data-theme="dark"] .icon-sun,
-        html[data-theme="light"] .icon-moon {
-            display: none;
-        }
-
-        /* Mobile Layout Selectors */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1100;
-        }
-
-        .hamburger-bar {
-            width: 24px;
-            height: 2px;
-            background-color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-
-        /* 2. Hero Interactive Workspace */
-        .hero-section {
-            padding: 11rem 2rem 8rem 2rem;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-glow-effect {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
-            filter: blur(60px);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero-container {
-            max-width: 900px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge {
-            background: rgba(20, 184, 166, 0.08);
-            border: 1px solid rgba(20, 184, 166, 0.15);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-teal);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .pulse-ring {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-teal);
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7);
-            animation: pulse-animation 2s infinite;
-        }
-
-        @keyframes pulse-animation {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--text-main);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 780px;
-            margin: 0 auto 3rem auto;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        /* 3. Skills Matrix Components */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.25rem;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-icon-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .skill-icon-header i {
-            font-size: 1.5rem;
-        }
-
-        .skill-icon-header h3 {
-            font-size: 1.2rem;
-            letter-spacing: -0.3px;
-        }
-
-        .ml-accent i, .ml-accent h3 { color: var(--accent-blue); }
-        .data-accent i, .data-accent h3 { color: var(--accent-teal); }
-        .cloud-accent i, .cloud-accent h3 { color: var(--accent-purple); }
-        .stats-accent i, .stats-accent h3 { color: #f59e0b; }
-
-        .border-glow-ml:hover { border-color: rgba(59, 130, 246, 0.4); }
-        .border-glow-data:hover { border-color: rgba(20, 184, 166, 0.4); }
-        .border-glow-cloud:hover { border-color: rgba(168, 85, 247, 0.4); }
-        .border-glow-stats:hover { border-color: rgba(245, 158, 11, 0.4); }
-
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .tech-tag {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.4rem 0.9rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* 4 & 5. Timeline System Architecture (Experience & Education) */
-        .timeline-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline-backbone {
-            position: absolute;
-            top: 0;
-            left: 30px;
-            height: 100%;
-            width: 2px;
-            background: var(--border-color);
-        }
-
-        .timeline-block {
-            position: relative;
-            margin-bottom: 4rem;
-            padding-left: 5rem;
-        }
-
-        .timeline-block:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-node {
-            position: absolute;
-            left: 10px;
-            top: 0;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background-color: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            z-index: 2;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .timeline-block:hover .timeline-node {
-            border-color: var(--accent-blue);
-            background-color: var(--bg-secondary);
-            color: var(--accent-blue);
-        }
-
-        .timeline-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--card-shadow);
-        }
-
-        html[data-theme="light"] .timeline-card {
-            background-color: var(--bg-secondary);
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent-teal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-role {
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-institution {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .content-list {
-            padding-left: 1.25rem;
-        }
-
-        .content-list li {
-            position: relative;
-            margin-bottom: 0.75rem;
-            color: var(--text-muted);
-            list-style-type: square;
-        }
-
-        .content-list li::marker {
-            color: var(--accent-blue);
-        }
-
-        /* 6. Case Studies (Featured Architecture) */
-        .projects-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project-display-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 3rem;
-            display: flex;
-            gap: 3rem;
-            align-items: flex-start;
-            box-shadow: var(--card-shadow);
-        }
-
-        .project-visual-indicator {
-            width: 70px;
-            height: 70px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-
-        .color-1 { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
-        .color-2 { background: rgba(20, 184, 166, 0.1); color: var(--accent-teal); }
-        .color-3 { background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); }
-
-        .project-content h3 {
-            font-size: 1.6rem;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.4rem;
-        }
-
-        .project-institution-tag {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-text {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        /* 7. Engagement HUD Workspace Layouts */
-        .contact-interface-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1.2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .glass-console-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .console-card {
-            background-color: #05070c;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 15px 35px rgba(0,0,0,0.4);
-        }
-
-        .console-header {
-            background: #0d1117;
-            padding: 0.75rem 1.25rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .console-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .console-dots span {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .dot-red { background-color: #ef4444; }
-        .dot-yellow { background-color: #f59e0b; }
-        .dot-green { background-color: #10b981; }
-
-        .console-title {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-family: monospace;
-        }
-
-        .console-body {
-            padding: 1.5rem;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .console-log-text {
-            color: #8b949e;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-console {
-            background: #21262d;
-            border: 1px solid #30363d;
-            color: #c9d1d9;
-            padding: 0.5rem 1rem;
-            font-family: monospace;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-console:hover {
-            background: #30363d;
-            border-color: #8b949e;
-            color: #f0f6fc;
-        }
-
-        .console-response-box {
-            margin-top: 1.25rem;
-            padding: 1rem;
-            background: #090c10;
-            border-radius: 6px;
-            border-left: 3px solid transparent;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        .direct-channels-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .channel-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .whatsapp-style {
-            background-color: rgba(37, 211, 102, 0.08);
-            border: 1px solid rgba(37, 211, 102, 0.2);
-            color: #25d366;
-        }
-
-        .whatsapp-style:hover {
-            background-color: #25d366;
-            color: #ffffff;
-        }
-
-        .sms-style {
-            background-color: rgba(59, 130, 246, 0.08);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            color: var(--accent-blue);
-        }
-
-        .sms-style:hover {
-            background-color: var(--accent-blue);
-            color: #ffffff;
-        }
-
-        /* Messaging Grid Form Elements */
-        .contact-form-container {
-            background-color: var(--bg-glass);
-            border: 1px solid var(--border-color);
-            padding: 3.5rem;
-            border-radius: 16px;
-            box-shadow: var(--glass-shadow);
-        }
-
-        .interactive-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-        }
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-field label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-        }
-
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .field-icon {
-            position: absolute;
-            left: 1.25rem;
-            color: var(--text-muted);
-            font-size: 1rem;
-            pointer-events: none;
-        }
-
-        .alignment-top {
-            top: 1.25rem;
-        }
-
-        .input-wrapper input,
-        .input-wrapper textarea {
-            width: 100%;
-            padding: 1rem 1.25rem 1rem 3rem;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .input-wrapper input:focus,
-        .input-wrapper textarea:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-        }
-
-        .btn-submit {
-            background: var(--gradient-primary);
-            color: #ffffff;
-            justify-content: center;
-            padding: 1.1rem;
-            font-size: 1rem;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
-        }
-
-        .hud-feedback-banner {
-            padding: 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: none;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        /* 8. Global Footer Elements */
-        .global-footer {
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-secondary);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer-copyright {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-disclaimer {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* ==========================================================================
-           RESPONSIVE VIEWPORT BREAKPOINTS (MEDIA QUERIES)
-           ========================================================================== */
-        @media (max-width: 1024px) {
-            .hero-title { font-size: 3.2rem; }
-            .contact-interface-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .project-display-card { padding: 2.5rem; gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .section-wrapper { padding: 5rem 1.5rem; }
-            .hero-section { padding-top: 9rem; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.2rem; }
-            
-            /* Responsive Mobile Structural Dropdown Menu Rules */
-            #menu-icon { display: flex; }
-            nav ul {
-                position: fixed;
-                top: 73px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 73px);
-                background-color: var(--bg-primary);
-                flex-direction: column;
-                padding: 3rem 2rem;
-                gap: 2rem;
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-top: 1px solid var(--border-color);
-                z-index: 1000;
-            }
-
-            nav ul.active { transform: translateX(0); }
-            #menu-icon.open-state .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            #menu-icon.open-state .hamburger-bar:nth-child(2) { opacity: 0; }
-            #menu-icon.open-state .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            
-            .project-display-card { flex-direction: column; text-align: center; align-items: center; }
-            .contact-form-container { padding: 2rem; }
-            .direct-channels-container { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="atmosphere" aria-hidden="true">
+        <div class="grid-plane"></div>
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+    </div>
 
     <header class="site-header">
-        <nav class="nav-container">
-            <div class="logo">
-                RAYMOND<span class="logo-accent">.TUNGARAZA</span>
-            </div>
-            
-            <div class="nav-actions-wrapper">
-                <ul id="navMenu">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Core Skills</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link header-cta">Connect</a></li>
+        <nav class="nav" aria-label="Primary">
+            <a href="#hero" class="brand">RAYMOND<span>TUNGARAZA</span></a>
+            <div class="nav-trail">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#ethics">Ethics</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-
-                <button class="theme-toggle-btn" id="theme-switcher" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-sun icon-sun"></i>
-                    <i class="fa-solid fa-moon icon-moon"></i>
+                <button class="icon-btn" id="theme-switcher" type="button" aria-label="Toggle color theme">
+                    <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+                    <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
                 </button>
-
-                <button class="menu-toggle" id="menu-icon" aria-label="Toggle Menu">
-                    <span class="hamburger-bar"></span>
-                    <span class="hamburger-bar"></span>
-                    <span class="hamburger-bar"></span>
+                <button class="icon-btn menu-toggle" id="menu-icon" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
         </nav>
     </header>
 
-    <section class="hero-section" id="about">
-        <div class="hero-glow-effect"></div>
-        <div class="hero-container">
-            <div class="hero-badge-wrapper">
-                <div class="hero-badge">
-                    <span class="pulse-ring"></span>
-                    <span>Available for High-Impact Roles</span>
-                </div>
+    <main id="main">
+        <section class="hero" id="hero">
+            <p class="eyebrow">Data Scientist · EASTC · Dar es Salaam</p>
+            <h1 class="hero-brand">Raymond Elphance<br>Tungaraza</h1>
+            <p class="hero-lead">I turn messy institutional data into models, systems, and decisions people can trust — with statistical rigor, secure design, and ethical accountability.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View selected work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                <a href="#contact" class="btn btn-ghost">Start a conversation</a>
             </div>
-            <h1 class="hero-title">
-                RAYMOND ELPHANCE <br>
-                <span class="gradient-text">TUNGARAZA</span>
-            </h1>
-            <p class="hero-subtitle">
-                Highly analytical and detail-oriented Data Scientist & Full-Stack Developer
-            </p>
-            <p class="hero-description">
-                Proven track record of leveraging statistical modeling frameworks and data engineering pipelines to extract, clean, and transform unstructured datasets into actionable business intelligence. Adept at designing robust web applications and cloud deployments while maintaining architectural integrity with a strong foundation in mathematics and advanced statistics.
-            </p>
-            
-            <div class="tech-tag" style="margin: 0 auto 2rem auto; font-size: 0.95rem; display: inline-flex; gap: 1.5rem; padding: 0.75rem 1.5rem;">
-                <span><i class="fa-solid fa-location-dot" style="color:var(--accent-blue);"></i> Dar es Salaam, Tanzania</span>
-                <span><i class="fa-solid fa-phone" style="color:var(--accent-teal);"></i> +255 655 786 630</span>
-                <span><i class="fa-solid fa-envelope" style="color:var(--accent-purple);"></i> raymondtungaraza20@gmail.com</span>
+            <dl class="signal-row" aria-label="Profile signals">
+                <div>
+                    <dt>Focus</dt>
+                    <dd>Predictive modeling &amp; applied analytics</dd>
+                </div>
+                <div>
+                    <dt>Stack</dt>
+                    <dd>Python · R · SQL · Cloud APIs</dd>
+                </div>
+                <div>
+                    <dt>Principle</dt>
+                    <dd>Privacy, fairness, secure-by-design</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="section" id="about">
+            <div class="section-intro">
+                <p class="section-tag">Identity</p>
+                <h2>Defined by method, not buzzwords</h2>
+                <p class="section-copy">I am a data scientist building decision systems for African institutions — credit risk, hospital operations, tax workflows, and research analytics. My practice sits at the intersection of statistical modeling, product engineering, and data stewardship.</p>
             </div>
-
-            <div class="hero-cta-group">
-                <a href="#experience" class="btn btn-primary">
-                    <i class="fa-solid fa-briefcase"></i> View Experience
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fa-solid fa-address-card"></i> Personal Information
-                </a>
+            <div class="about-grid">
+                <article class="about-panel">
+                    <h3>How I work</h3>
+                    <ul class="check-list">
+                        <li>Frame the decision before choosing the model</li>
+                        <li>Clean, validate, and document every pipeline stage</li>
+                        <li>Prefer interpretable models when stakes are high</li>
+                        <li>Ship secure interfaces so insight becomes action</li>
+                    </ul>
+                </article>
+                <article class="about-panel accent-panel">
+                    <h3>Scientific stance</h3>
+                    <p>Trained in mathematical statistics, multivariate analysis, and computational analytics at the Eastern Africa Statistical Training Centre (EASTC). I treat every dataset as a social artifact — incomplete, biased, and consequential — and design for that reality.</p>
+                    <p class="meta-line"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Changanyikeni, Dar es Salaam, Tanzania</p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-wrapper alt-bg" id="skills">
-        <div class="section-header">
-            <span class="section-tag">Competencies</span>
-            <h2 class="section-heading">Core Skills & Toolkit</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card border-glow-ml">
-                <div class="skill-icon-header ml-accent">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Programming Languages</h3>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tech-tag">Python (Pandas, NumPy, Scikit-Learn)</span>
-                    <span class="tech-tag">Python (Matplotlib, Seaborn)</span>
-                    <span class="tech-tag">R Studio (Tidyverse, Caret)</span>
-                    <span class="tech-tag">SQL (PostgreSQL, MySQL)</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">HTML5 & CSS3</span>
-                </div>
+        <section class="section section-band" id="skills">
+            <div class="section-intro">
+                <p class="section-tag">Capability</p>
+                <h2>Technical fluency for end-to-end science</h2>
+                <p class="section-copy">From extraction and modeling to deployment and monitoring — a toolkit shaped for real institutional constraints.</p>
             </div>
-
-            <div class="skill-card border-glow-data">
-                <div class="skill-icon-header data-accent">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>Data Science & Analytics</h3>
+            <div class="skills-lattice">
+                <div class="skill-block">
+                    <h3><i class="fa-solid fa-brain" aria-hidden="true"></i> Machine learning</h3>
+                    <ul>
+                        <li>Python · Scikit-Learn · Pandas · NumPy</li>
+                        <li>Credit scoring &amp; classification pipelines</li>
+                        <li>Model validation, tuning, and diagnostics</li>
+                        <li>Feature engineering for tabular risk data</li>
+                    </ul>
                 </div>
-                <div class="tag-cloud">
-                    <span class="tech-tag">Data Extraction</span>
-                    <span class="tech-tag">Advanced Data Cleaning</span>
-                    <span class="tech-tag">Statistical Modeling</span>
-                    <span class="tech-tag">Regression Analysis</span>
-                    <span class="tech-tag">Ordinal Logistic Regression</span>
-                    <span class="tech-tag">Latent Variable Frameworks</span>
-                    <span class="tech-tag">Quantitative Research</span>
-                    <span class="tech-tag">Predictive Analytics</span>
-                    <span class="tech-tag">Data Entity Management</span>
+                <div class="skill-block">
+                    <h3><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i> Statistical computing</h3>
+                    <ul>
+                        <li>R Studio · Tidyverse · Caret</li>
+                        <li>Multivariate &amp; ordinal logistic regression</li>
+                        <li>Time-series thinking &amp; exploratory analysis</li>
+                        <li>Reproducible research workflows</li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="skill-card border-glow-cloud">
-                <div class="skill-icon-header cloud-accent">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <h3>Tools & Cloud Platforms</h3>
+                <div class="skill-block">
+                    <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Data systems</h3>
+                    <ul>
+                        <li>SQL · PostgreSQL · MySQL / MariaDB</li>
+                        <li>ETL design &amp; entity integrity checks</li>
+                        <li>Excel analytics for operational reporting</li>
+                        <li>Dashboard storytelling (Tableau / Power BI)</li>
+                    </ul>
                 </div>
-                <div class="tag-cloud">
-                    <span class="tech-tag">Microsoft Excel (Advanced Visualizations/Pivots)</span>
-                    <span class="tech-tag">Tableau</span>
-                    <span class="tech-tag">Power BI</span>
-                    <span class="tech-tag">Git & GitHub</span>
-                    <span class="tech-tag">Render</span>
-                    <span class="tech-tag">Vercel</span>
-                    <span class="tech-tag">Linux/Unix Environments</span>
-                </div>
-            </div>
-
-            <div class="skill-card border-glow-stats">
-                <div class="skill-icon-header stats-accent">
-                    <i class="fa-solid fa-users-gear"></i>
-                    <h3>Methodologies & Soft Skills</h3>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tech-tag">Technical System Training</span>
-                    <span class="tech-tag">Academic Coaching</span>
-                    <span class="tech-tag">Agile Development</span>
-                    <span class="tech-tag">UI/UX Optimization</span>
-                    <span class="tech-tag">Cross-functional Collaboration</span>
-                    <span class="tech-tag">Data-Driven Problem Solving</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-wrapper" id="experience">
-        <div class="section-header">
-            <span class="section-tag">Chronology</span>
-            <h2 class="section-heading">Professional Experience</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="timeline-container">
-            <div class="timeline-backbone"></div>
-
-            <div class="timeline-block">
-                <div class="timeline-node">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-                <div class="timeline-card">
-                    <span class="timeline-date">October 2025 - Present</span>
-                    <h3 class="timeline-role">Software Developer (Web Architecture)</h3>
-                    <div class="timeline-institution">Balqees Investment | Dar es Salaam, Tanzania</div>
-                    <ul class="content-list">
-                        <li>Design, engineer, and continuously maintain highly responsive full-stack enterprise web ecosystems, guaranteeing clean database query optimizations, structural modularity, and rapid rendering capabilities.</li>
-                        <li>Oversee and manage secure automated continuous integration and deployment pipelines (CI/CD) utilizing specialized environments like Render and Vercel, increasing uptime metrics and web performance scaling.</li>
-                        <li>Architect relational entity-relationship database backend models, prioritizing completely secure modern extraction techniques, strict data parameters, and bulletproof web API integrations.</li>
-                        <li>Directed deep visual user interface optimization and responsiveness tracks, systematically troubleshooting core layout bottlenecks to dramatically maximize accessibility and dark mode user readability metrics.</li>
+                <div class="skill-block">
+                    <h3><i class="fa-solid fa-cloud" aria-hidden="true"></i> Engineering &amp; cloud</h3>
+                    <ul>
+                        <li>FastAPI · Django / Flask · Laravel · Node</li>
+                        <li>Vercel · Render · Git / GitHub CI paths</li>
+                        <li>REST APIs, CORS, and secure form channels</li>
+                        <li>Accessible UI with light/dark themes</li>
                     </ul>
                 </div>
             </div>
+        </section>
 
-            <div class="timeline-block">
-                <div class="timeline-node">
-                    <i class="fa-solid fa-chalkboard-user"></i>
-                </div>
-                <div class="timeline-card">
-                    <span class="timeline-date">October 2024 - July 2026</span>
-                    <h3 class="timeline-role">Academic Coach & Professional Trainer</h3>
-                    <div class="timeline-institution">Millicent Igogo Coaching | Dar es Salaam, Tanzania</div>
-                    <ul class="content-list">
-                        <li>Delivered advanced, specialized academic training tracks across rigorous computing architecture, logic foundations, and mathematical statistics curriculums to optimize professional-grade competence.</li>
-                        <li>Formulated and implemented structured interactive learning repositories, technical code labs, and custom numeric evaluation metrics leveraging Python and R to elevate student practical capabilities.</li>
-                        <li>Analyzed granular student performance parameters via descriptive statistical models to diagnose deep conceptual barriers, formulating agile target methodologies that measurably enhanced educational outcome metrics.</li>
-                    </ul>
-                </div>
+        <section class="section" id="ethics">
+            <div class="section-intro">
+                <p class="section-tag">Stewardship</p>
+                <h2>Data ethics &amp; security as design requirements</h2>
+                <p class="section-copy">Models affect livelihoods and care pathways. I bake privacy, fairness, and security into the architecture — not as an afterthought slide.</p>
             </div>
-
-            <div class="timeline-block">
-                <div class="timeline-node">
-                    <i class="fa-solid fa-building-columns"></i>
-                </div>
-                <div class="timeline-card">
-                    <span class="timeline-date">Jul 2024 - Oct 2024 & Jul 2025 - Oct 2025</span>
-                    <h3 class="timeline-role">Tax Officer (Field training)</h3>
-                    <div class="timeline-institution">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania</div>
-                    <ul class="content-list">
-                        <li>Executed end-to-end data extraction and comprehensive tax analysis workflows across high-volume institutional financial records to identify compliance discrepancies and optimize systemic revenue collections.</li>
-                        <li>Conducted rigorous data cleaning, database validation, and data entity verification protocols on highly complex tax datasets, significantly maximizing institutional reporting integrity and minimizing internal audit cycles.</li>
-                        <li>Performed systematic tax examinations and statistical audits on structural corporate and individual asset filings, guaranteeing completely strict alignment with regional revenue laws and compliance frameworks.</li>
-                        <li>Leveraged advanced analytical Excel macros and statistical indexing frameworks to map systemic patterns within historical tax logs, enabling team leaders to promptly identify potential financial risk metrics.</li>
-                    </ul>
-                </div>
+            <div class="ethics-grid">
+                <article class="principle">
+                    <span class="principle-num">01</span>
+                    <h3>Purpose limitation</h3>
+                    <p>Collect and process only what the decision requires. Document lawful purpose, retention, and deletion paths before production use.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle-num">02</span>
+                    <h3>Fairness &amp; bias vigilance</h3>
+                    <p>Especially in credit and health contexts: inspect disparate impact, avoid proxy discrimination, and prefer transparent score explanations.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle-num">03</span>
+                    <h3>Privacy by design</h3>
+                    <p>Minimize identifiers, protect PII in logs, encrypt in transit, and apply role-based access so sensitive records stay compartmentalized.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle-num">04</span>
+                    <h3>Secure system posture</h3>
+                    <p>Input validation, constrained CORS, security headers (CSP, HSTS, frame denial), session hygiene, and least-privilege service accounts.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle-num">05</span>
+                    <h3>Accountability &amp; consent</h3>
+                    <p>Clear stakeholder communication, informed use of data subjects’ information, and audit trails that make automated decisions reviewable.</p>
+                </article>
+                <article class="principle">
+                    <span class="principle-num">06</span>
+                    <h3>Responsible deployment</h3>
+                    <p>Human oversight for high-stakes outputs, monitoring for drift, and rollback plans when models behave outside expected envelopes.</p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-wrapper alt-bg" id="education">
-        <div class="section-header">
-            <span class="section-tag">Credentials</span>
-            <h2 class="section-heading">Education History</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="timeline-container">
-            <div class="timeline-backbone"></div>
-
-            <div class="timeline-block">
-                <div class="timeline-node">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div class="timeline-card">
-                    <span class="timeline-date">Oct 2023 - Oct 2026</span>
-                    <h3 class="timeline-role">Bachelor of Science in Data Science</h3>
-                    <div class="timeline-institution">Eastern Africa Statistical Training Centre (EASTC) | Dar es Salaam, Tanzania</div>
-                    <p class="project-text" style="margin-top: 1rem; font-weight: 700; color: var(--accent-blue);">
-                        Core Academic Focus:
-                    </p>
-                    <ul class="content-list">
-                        <li>Advanced Mathematical Statistics & Probability Systems</li>
-                        <li>Relational Database Design (SQL)</li>
-                        <li>Big Data Engineering Frameworks</li>
-                        <li>Time Series Diagnostics & Predictive Analytics Models</li>
-                    </ul>
-                </div>
+        <section class="section section-band" id="experience">
+            <div class="section-intro">
+                <p class="section-tag">Trajectory</p>
+                <h2>Experience that connects science to operations</h2>
             </div>
-        </div>
-    </section>
-
-    <section class="section-wrapper" id="projects">
-        <div class="section-header">
-            <span class="section-tag">Case Studies</span>
-            <h2 class="section-heading">Featured Architecture</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="projects-container">
-            <div class="project-display-card">
-                <div class="project-visual-indicator color-1">
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                </div>
-                <div class="project-content">
-                    <h3>KodiPop System Architecture</h3>
-                    <div class="project-institution-tag">Tanzania Revenue Authority (TRA) Automation Initiative</div>
-                    <p class="project-text">
-                        An advanced innovation proposal engineered to streamline, track, and optimize tax metrics through customized data extraction architectures. The platform layout maps structural human resources blueprints alongside secure back-end automation processes, completely scoped and scheduled to fit a rigorous 6-week execution timeline.
-                    </p>
-                </div>
-            </div>
-
-            <div class="project-display-card">
-                <div class="project-visual-indicator color-2">
-                    <i class="fa-solid fa-shop"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Blessing Mall Supermarket Management System</h3>
-                    <div class="project-institution-tag">Commercial Management Platform</div>
-                    <p class="project-text">
-                        A modern enterprise inventory and sales tracking framework deployed for Blessing Mall. Features integrated barcode scanning parameters, full point-of-sale calculations, real-time stock levels logging, and automatic month-end sales data visualization reports.
-                    </p>
-                </div>
-            </div>
-
-            <div class="project-display-card">
-                <div class="project-visual-indicator color-3">
-                    <i class="fa-solid fa-hospital-user"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Healthcare Analytics & Hospital Operations Tracker</h3>
-                    <div class="project-institution-tag">Data-Driven Resource Analytics</div>
-                    <p class="project-text">
-                        An analytical system model focused on parsing complex hospital database frameworks. Leverages comprehensive data cleaning protocols to identify operational gaps, streamline resource management tracking logs, and support clinical stakeholders with high-integrity statistical insight.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-wrapper alt-bg" id="contact">
-        <div class="section-header">
-            <span class="section-tag">Engagement HUD</span>
-            <h2 class="section-heading">Initialize Connection</h2>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="contact-interface-grid">
-            <div class="glass-console-wrapper">
-                
-                <div class="console-card" style="margin-bottom: 0rem; padding: 1.5rem; background: var(--bg-primary);">
-                    <div class="console-title" style="text-transform: uppercase; letter-spacing: 1px; color: var(--accent-purple); margin-bottom: 1rem;">
-                        <i class="fa-solid fa-id-card"></i> Personal Records
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-meta">
+                        <time datetime="2025-10">Oct 2025 — Present</time>
+                        <span class="place">Balqees Investment · Dar es Salaam</span>
                     </div>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Date of Birth:</strong> October 1, 2003</p>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Nationality:</strong> Tanzanian</p>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Marital Status:</strong> Single</p>
-                    <p style="font-size: 0.95rem;"><strong>Languages:</strong> English, Swahili</p>
-                </div>
-
-                <div class="console-card">
-                    <div class="console-header">
-                        <div class="console-dots">
-                            <span class="dot-red"></span>
-                            <span class="dot-yellow"></span>
-                            <span class="dot-green"></span>
-                        </div>
-                        <div class="console-title">api_handshake_service.py</div>
+                    <h3>Software Developer — Web Architecture</h3>
+                    <p>Design and maintain full-stack enterprise web systems with optimized data access, modular APIs, and CI/CD on Render and Vercel. Prioritize secure extraction patterns, relational integrity, and accessible interface performance.</p>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-meta">
+                        <time datetime="2024-10">Oct 2024 — Jul 2026</time>
+                        <span class="place">Millicent Igogo Coaching · Dar es Salaam</span>
                     </div>
-                    <div class="console-body">
-                        <p class="console-log-text">> ready to initialize secure communication handshake tunnel...</p>
-                        <button class="btn-console" onclick="getBackendMessage()">
-                            <i class="fa-solid fa-terminal"></i> run_api_handshake.sh
-                        </button>
-                        <div class="console-response-box" id="api-message">> Waiting for handshake execution query...</div>
+                    <h3>Academic Coach &amp; Professional Trainer</h3>
+                    <p>Deliver training in computing foundations, logic, and mathematical statistics. Build interactive labs in Python and R, and use descriptive analytics on learner performance to target conceptual gaps.</p>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-meta">
+                        <time datetime="2024-07">Jul–Oct 2024 &amp; Jul–Oct 2025</time>
+                        <span class="place">Tanzania Revenue Authority (TRA)</span>
                     </div>
-                </div>
+                    <h3>Tax Officer — Field Training</h3>
+                    <p>Executed high-volume tax data extraction, cleaning, and validation. Applied Excel analytics and statistical indexing to surface compliance risk patterns and strengthen reporting integrity.</p>
+                </li>
+            </ol>
+        </section>
 
-                <div class="direct-channels-container">
-                    <a href="https://wa.me/255655786630" target="_blank" class="channel-link whatsapp-style">
-                        <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
-                    </a>
-                    <a href="sms:+255655786630" class="channel-link sms-style">
-                        <i class="fa-solid fa-comment-sms"></i> Send SMS
-                    </a>
-                </div>
+        <section class="section" id="projects">
+            <div class="section-intro">
+                <p class="section-tag">Selected work</p>
+                <h2>Projects that prove the science in production</h2>
+                <p class="section-copy">Applied systems spanning credit risk ML, hospital operations, tax innovation, retail automation, and research analytics — several co-built with modern AI-assisted engineering workflows.</p>
             </div>
-
-            <div class="contact-form-container">
-                <form class="interactive-form" id="contactForm">
-                    <div class="form-field">
-                        <label for="name">Full Name / Organization</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-user field-icon"></i>
-                            <input type="text" id="name" placeholder="Your name or organization" required>
+            <div class="projects-stack">
+                <article class="project featured">
+                    <div class="project-body">
+                        <p class="project-kicker">ML · Fintech · Secure APIs</p>
+                        <h3>Ushirika — SME Credit Risk Platform</h3>
+                        <p>Automated credit ecosystem for Tanzanian SMEs: FastAPI scoring backend, machine-learning risk signals, and a Vite portal for lenders and administrators. Designed with role separation, session hygiene, and security headers for responsible lending workflows.</p>
+                        <ul class="tech-row">
+                            <li>Python / FastAPI</li>
+                            <li>Scikit-Learn</li>
+                            <li>Vite</li>
+                            <li>Render + Vercel</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://ushirika-sme-portal.vercel.app" target="_blank" rel="noopener noreferrer">Live portal <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <a href="https://github.com/Dmmkuliku/ushirika-sme-credit" target="_blank" rel="noopener noreferrer">Source</a>
                         </div>
                     </div>
+                </article>
 
-                    <div class="form-field">
-                        <label for="email">Secure Contact Email Address</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-envelope field-icon"></i>
-                            <input type="email" id="email" placeholder="name@domain.com" required>
+                <article class="project featured">
+                    <div class="project-body">
+                        <p class="project-kicker">Health systems · Data governance</p>
+                        <h3>Savannah Health System</h3>
+                        <p>Hospital information system for Tanzanian facilities — EMR, OPD/IPD, pharmacy, billing (TZS), NHIF stubs, and MTUHA-oriented reporting. Role-based staff access and bilingual (English / Kiswahili) workflows support ethical handling of clinical and billing data.</p>
+                        <ul class="tech-row">
+                            <li>Laravel 12</li>
+                            <li>PostgreSQL / MySQL</li>
+                            <li>Tailwind</li>
+                            <li>Render + Vercel</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://savannah-health-system.vercel.app" target="_blank" rel="noopener noreferrer">Live system <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <a href="https://github.com/Dmmkuliku/savannah-health-system" target="_blank" rel="noopener noreferrer">Source</a>
                         </div>
                     </div>
+                </article>
 
-                    <div class="form-field">
-                        <label for="message">Project Objectives / Collaboration Scope</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-comment-dots field-icon alignment-top"></i>
-                            <textarea id="message" rows="5" placeholder="Detail your data analysis challenges or full-stack software requirements..." required></textarea>
+                <div class="project-grid">
+                    <article class="project">
+                        <p class="project-kicker">Public sector · Tax analytics</p>
+                        <h3>KodiPop Innovation</h3>
+                        <p>Machine-learning oriented presumptive tax assessment framework for micro-merchants — streamlining reporting clarity and operational tax workflows aligned with TRA field insights.</p>
+                        <ul class="tech-row">
+                            <li>ML design</li>
+                            <li>Process modeling</li>
+                            <li>TRA context</li>
+                        </ul>
+                    </article>
+                    <article class="project">
+                        <p class="project-kicker">Retail ops · Automation</p>
+                        <h3>Blessing Mall POS &amp; Inventory</h3>
+                        <p>Transactional POS with barcode scanning, durable local state across restarts, stock tracking, and month-end sales visualization for supermarket operations.</p>
+                        <ul class="tech-row">
+                            <li>POS logic</li>
+                            <li>Inventory analytics</li>
+                            <li>Reporting</li>
+                        </ul>
+                    </article>
+                    <article class="project">
+                        <p class="project-kicker">Research · Ordinal models</p>
+                        <h3>Food Security &amp; Health Analytics</h3>
+                        <p>Research frameworks using multivariable ordinal logistic regression on categorical metrics across regional food security and health institution datasets.</p>
+                        <ul class="tech-row">
+                            <li>R / Python</li>
+                            <li>Ordinal logistic</li>
+                            <li>Survey analytics</li>
+                        </ul>
+                    </article>
+                    <article class="project">
+                        <p class="project-kicker">Cloud · Portfolio platform</p>
+                        <h3>This portfolio (Vercel + Render)</h3>
+                        <p>Static frontend on Vercel with a hardened Express contact API on Render — CORS controls, validation, and a clear separation between presentation and secure message intake.</p>
+                        <ul class="tech-row">
+                            <li>HTML / CSS</li>
+                            <li>Node / Express</li>
+                            <li>Cloud deploy</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Dmmkuliku/Cloud" target="_blank" rel="noopener noreferrer">GitHub</a>
                         </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-band" id="education">
+            <div class="section-intro">
+                <p class="section-tag">Formation</p>
+                <h2>Education &amp; academic focus</h2>
+            </div>
+            <article class="edu-panel">
+                <div class="edu-head">
+                    <h3>Bachelor of Science in Data Science</h3>
+                    <time datetime="2023-10">Oct 2023 — Oct 2026</time>
+                </div>
+                <p class="place">Eastern Africa Statistical Training Centre (EASTC) · Dar es Salaam, Tanzania</p>
+                <ul class="focus-chips">
+                    <li>Mathematical statistics &amp; probability</li>
+                    <li>Relational database design</li>
+                    <li>Big data engineering concepts</li>
+                    <li>Predictive analytics &amp; time series</li>
+                    <li>Data security &amp; ethics</li>
+                    <li>Multivariate data analysis</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-intro">
+                <p class="section-tag">Connect</p>
+                <h2>Let’s build something rigorous</h2>
+                <p class="section-copy">Open to roles, research collaboration, and systems that need statistical depth with production discipline.</p>
+            </div>
+
+            <div class="contact-layout">
+                <aside class="contact-aside">
+                    <p class="aside-label">Direct channels</p>
+                    <a class="contact-line" href="mailto:raymondtungaraza20@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> raymondtungaraza20@gmail.com</a>
+                    <a class="contact-line" href="tel:+255655786630"><i class="fa-solid fa-phone" aria-hidden="true"></i> +255 655 786 630</a>
+                    <a class="contact-line" href="https://github.com/Dmmkuliku" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> github.com/Dmmkuliku</a>
+                    <p class="aside-label">Quick reach</p>
+                    <div class="quick-row">
+                        <a href="https://wa.me/255655786630" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+                        <a href="sms:+255655786630" class="btn btn-ghost"><i class="fa-solid fa-comment-sms" aria-hidden="true"></i> SMS</a>
                     </div>
+                    <div class="status-banner" id="api-status" role="status">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        Secure contact channel via Render API
+                    </div>
+                </aside>
 
-                    <div class="hud-feedback-banner" id="formResponse"></div>
-
-                    <button type="submit" class="btn btn-submit">
-                        <i class="fa-solid fa-paper-plane"></i> Transmit Secure Request
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="field">
+                        <label for="name">Name / organization</label>
+                        <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required placeholder="Your name or institution">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@organization.com">
+                    </div>
+                    <div class="field">
+                        <label for="message">Project scope</label>
+                        <textarea id="message" name="message" maxlength="4000" required placeholder="Dataset context, analytical goals, timeline, or collaboration idea..."></textarea>
+                    </div>
+                    <p class="form-note">Messages are validated server-side. Do not send passwords, national IDs, or clinical records through this form.</p>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send secure message
                     </button>
+                    <div id="formResponse" class="form-response" hidden role="status" aria-live="polite"></div>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="global-footer">
-        <div class="footer-content">
-            <p class="footer-copyright">
-                &copy; 2026 Raymond Elphance Tungaraza. All Rights Reserved.
-            </p>
-            <p class="footer-disclaimer">
-                Data Science Architecture & Engineering Portfolio. Custom engineered with separation paradigms, secure endpoints, and modular code tracking layouts.
-            </p>
-        </div>
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> Raymond Elphance Tungaraza. Data science with ethical and secure practice.</p>
+        <p class="footer-meta">English · Kiswahili · Dar es Salaam</p>
     </footer>
 
     <script>
-        // 1. Theme Engine Switching Management Logic
-        const themeButton = document.getElementById('theme-switcher');
-        const htmlElement = document.documentElement;
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('theme-switcher');
+        const menuBtn = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        const yearEl = document.getElementById('year');
 
-        themeButton.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', targetTheme);
-        });
+        yearEl.textContent = String(new Date().getFullYear());
 
-        // 2. Mobile Layout Nav Open-Close Toggle Function
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinksList = document.querySelector('nav ul');
-
-        menuIcon.addEventListener('click', () => {
-            menuIcon.classList.toggle('open-state');
-            navLinksList.classList.toggle('active');
-        });
-
-        // Close navigation menu when a link is clicked
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuIcon.classList.remove('open-state');
-                navLinksList.classList.remove('active');
-            });
-        });
-
-        // 3. Live Connection API Demo Call Function (UPDATED FOR TEXT RESPONSES)
-        function getBackendMessage() {
-            const messageParagraph = document.getElementById('api-message');
-            
-            // Visual loading state setup
-            messageParagraph.style.display = "block";
-            messageParagraph.style.color = "#3498db";
-            messageParagraph.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Fetching response parameters...';
-
-            fetch('https://portfolio-backend-c4ey.onrender.com/')
-                .then(response => {
-                    if (!response.ok) throw new Error("Network status execution fault");
-                    return response.text(); // <-- Changed from .json() to .text() to match your server response
-                })
-                .then(text => {
-                    messageParagraph.style.color = "#2ecc71"; // Success Green
-                    messageParagraph.innerHTML = `<i class="fa-solid fa-circle-check"></i> Connected! Server Status: "${text}"`;
-                })
-                .catch(error => {
-                    console.error(error);
-                    messageParagraph.style.color = "#e74c3c"; // Error Red
-                    messageParagraph.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
-                });
+        const savedTheme = localStorage.getItem('rt-theme');
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+            html.setAttribute('data-theme', savedTheme);
         }
 
-        // 4. Asynchronous Form Engine (Connecting to your live Render server URL)
+        themeBtn.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('rt-theme', next);
+        });
+
+        menuBtn.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const revealEls = document.querySelectorAll('.section-intro, .about-panel, .skill-block, .principle, .timeline-item, .project, .edu-panel, .contact-aside, .contact-form');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach((el) => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
         const form = document.getElementById('contactForm');
         const responseDiv = document.getElementById('formResponse');
+        const API_URL = 'https://portfolio-backend-c4ey.onrender.com/api/contact';
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
-            responseDiv.style.display = "flex";
-            responseDiv.style.backgroundColor = "rgba(52, 152, 219, 0.1)";
-            responseDiv.style.color = "#3498db";
-            responseDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing data on custom backend...';
+        function showResponse(kind, htmlMsg) {
+            responseDiv.hidden = false;
+            responseDiv.className = 'form-response form-response--' + kind;
+            responseDiv.innerHTML = htmlMsg;
+        }
 
-            const payload = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-            fetch('https://portfolio-backend-c4ey.onrender.com/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(async (response) => {
-                if (response.ok) {
-                    responseDiv.style.backgroundColor = "rgba(46, 204, 113, 0.1)";
-                    responseDiv.style.color = "#2ecc71";
-                    responseDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i> Transmission saved successfully on Raymond\'s Render database!';
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                showResponse('error', '<i class="fa-solid fa-circle-exclamation"></i> Please complete all fields.');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showResponse('error', '<i class="fa-solid fa-circle-exclamation"></i> Enter a valid email address.');
+                return;
+            }
+
+            showResponse('pending', '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting through secure API…');
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (res.ok) {
+                    showResponse('ok', '<i class="fa-solid fa-circle-check"></i> Message received. I will respond shortly.');
                     form.reset();
                 } else {
-                    responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
-                    responseDiv.style.color = "#e74c3c";
-                    responseDiv.innerHTML = "Backend server processing exception encountered.";
+                    const data = await res.json().catch(() => ({}));
+                    showResponse('error', '<i class="fa-solid fa-triangle-exclamation"></i> ' + (data.error || 'Server could not process the request.'));
                 }
-            })
-            .catch(error => {
-                console.error(error);
-                responseDiv.style.backgroundColor = "rgba(231, 76, 60, 0.1)";
-                responseDiv.style.color = "#e74c3c";
-                responseDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Communication error. Render container sleeping or offline.';
-            });
+            } catch (err) {
+                console.error(err);
+                showResponse('error', '<i class="fa-solid fa-triangle-exclamation"></i> Network issue reaching the contact API. Try email or WhatsApp.');
+            }
         });
     </script>
 </body>
