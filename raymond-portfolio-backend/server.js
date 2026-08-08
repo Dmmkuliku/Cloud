@@ -5,6 +5,7 @@ const app = express();
 
 const ALLOWED_ORIGINS = [
     'https://cloud-dmmkuliku.vercel.app',
+    'https://cloud-gamma-rust.vercel.app',
     'https://dmmkuliku.github.io',
     'http://localhost:3000',
     'http://localhost:5173',
