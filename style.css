@@ -110,7 +110,7 @@ button, input, textarea { font: inherit; }
 
 .nav-actions { display: flex; align-items: center; gap: 0.55rem; }
 
-.nav-hire {
+.nav-cta {
     background: var(--navy);
     color: #fff;
     padding: 0.45rem 0.9rem;
@@ -118,7 +118,7 @@ button, input, textarea { font: inherit; }
     font-size: 0.82rem;
     font-weight: 700;
 }
-[data-theme="dark"] .nav-hire { background: var(--blue); color: #08111c; }
+[data-theme="dark"] .nav-cta { background: var(--blue); color: #08111c; }
 
 .theme-btn, .menu-btn {
     width: 2.35rem;
@@ -660,12 +660,36 @@ button, input, textarea { font: inherit; }
     gap: 1.2rem;
 }
 
-.console {
-    background: #0c1626;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+.audience-cards {
+    display: grid;
+    gap: 0.75rem;
     margin-bottom: 0.9rem;
+}
+
+.audience-cards article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1rem 1.05rem;
+    box-shadow: var(--shadow);
+}
+
+.audience-cards h3 {
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.audience-cards h3 i { color: var(--blue); }
+.audience-cards p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.console {
+    display: none;
 }
 
 .console-bar {
@@ -824,7 +848,7 @@ button, input, textarea { font: inherit; }
 
 @media (max-width: 768px) {
     .menu-btn { display: flex; }
-    .nav-hire { display: none; }
+    .nav-cta { display: none; }
 
     .nav-links {
         display: none;
