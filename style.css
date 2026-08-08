@@ -639,7 +639,21 @@ button, input, textarea { font: inherit; }
     margin-bottom: 0.7rem;
 }
 
-.project-card p:last-child { color: var(--muted); }
+.project-card p { color: var(--muted); }
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.85rem;
+}
+
+.project-links a {
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.project-links a:hover { color: var(--coral); }
 
 /* Contact */
 .contact-layout {
