@@ -1,395 +1,455 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Raymond Elphance Tungaraza — Data Scientist based in Dar es Salaam. Statistical modeling, analytics systems, and practical data projects.">
+    <meta name="description" content="Raymond Elphance Tungaraza — Data Scientist and Full-Stack Developer in Dar es Salaam, Tanzania.">
     <meta name="author" content="Raymond Elphance Tungaraza">
-    <meta name="theme-color" content="#4A9BD9">
-    <title>Raymond Tungaraza | Data Scientist</title>
+    <meta name="theme-color" content="#1B4F72">
+    <title>Raymond Elphance Tungaraza | Data Scientist Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <div class="bg-shapes" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="ring"></span>
+    </div>
+
     <header class="site-header">
         <nav class="nav" aria-label="Primary">
-            <a href="#hero" class="brand">Raymond <span>Tungaraza</span></a>
-            <div class="nav-trail">
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact" class="nav-cta">Contact</a></li>
-                </ul>
-                <button class="menu-toggle" id="menu-icon" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a class="logo" href="#home">RAYMOND<span>.TUNGARAZA</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Core Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Connect</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="theme-switcher" type="button" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+                    <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+                </button>
+                <button class="menu-btn" id="menu-icon" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </nav>
     </header>
 
     <main id="main">
-        <section class="hero" id="hero">
-            <div class="hero-copy">
-                <p class="eyebrow">Data Scientist · Dar es Salaam</p>
-                <h1>Raymond Elphance Tungaraza</h1>
-                <p class="hero-lead">
-                    I work with data to solve real problems — from credit scoring and hospital records
-                    to tax workflows and research models. I care about clean analysis, clear results,
-                    and systems that people can actually use.
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-main">
+                <p class="status-pill"><span class="dot"></span> Available for high-impact roles</p>
+                <h1>
+                    <span class="name-line">Raymond Elphance</span>
+                    <span class="name-line accent">Tungaraza</span>
+                </h1>
+                <p class="role">Data Scientist &amp; Full-Stack Developer</p>
+                <p class="intro">
+                    I use statistical modeling and data engineering to extract, clean, and turn
+                    unstructured datasets into useful business intelligence. I also design web
+                    applications and cloud deployments, with a strong base in mathematics and advanced statistics.
                 </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">See my work</a>
-                    <a href="#contact" class="btn btn-outline">Get in touch</a>
+                <div class="hero-meta">
+                    <a href="https://maps.google.com/?q=Dar+es+Salaam,+Tanzania" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Dar es Salaam, Tanzania
+                    </a>
+                    <a href="tel:+255655786630"><i class="fa-solid fa-phone" aria-hidden="true"></i> +255 655 786 630</a>
+                    <a href="mailto:raymondtungaraza20@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> raymondtungaraza20@gmail.com</a>
+                </div>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="#experience">View experience</a>
+                    <a class="btn btn-soft" href="#contact">Personal information</a>
                 </div>
             </div>
-            <aside class="hero-aside" aria-label="Quick facts">
-                <div class="fact">
-                    <span class="fact-label">Based in</span>
-                    <strong>Dar es Salaam, Tanzania</strong>
-                </div>
-                <div class="fact">
-                    <span class="fact-label">Studying</span>
-                    <strong>BSc Data Science, EASTC</strong>
-                </div>
-                <div class="fact">
-                    <span class="fact-label">Tools I use most</span>
-                    <strong>Python, R, SQL, Excel</strong>
-                </div>
-                <div class="fact">
-                    <span class="fact-label">Also builds</span>
-                    <strong>Web apps &amp; cloud APIs</strong>
-                </div>
+
+            <aside class="hero-panel" id="about">
+                <h2>Personal information</h2>
+                <dl class="info-list">
+                    <div>
+                        <dt>Date of birth</dt>
+                        <dd>October 1, 2003</dd>
+                    </div>
+                    <div>
+                        <dt>Nationality</dt>
+                        <dd>Tanzanian</dd>
+                    </div>
+                    <div>
+                        <dt>Marital status</dt>
+                        <dd>Single</dd>
+                    </div>
+                    <div>
+                        <dt>Languages</dt>
+                        <dd>English, Swahili</dd>
+                    </div>
+                </dl>
+                <p class="panel-note">
+                    Based in Dar es Salaam. Open to roles and collaborations that need both
+                    data science depth and practical software delivery.
+                </p>
             </aside>
         </section>
 
-        <section class="section" id="about">
-            <div class="section-head">
-                <p class="section-tag">About me</p>
-                <h2>A bit about who I am</h2>
-            </div>
-            <div class="about-layout">
-                <p class="about-lead">
-                    Hi — I’m Raymond. I’m a data science student at the Eastern Africa Statistical
-                    Training Centre, and I also build software for day-to-day business and public-sector work.
-                </p>
-                <div class="about-columns">
-                    <p>
-                        Most of my projects start with a practical question: Can we score SME credit risk
-                        more fairly? Can a hospital track patients and pharmacy stock without chaos?
-                        Can tax field work leave cleaner, more useful records?
-                    </p>
-                    <p>
-                        I like staying close to the full path — collecting and cleaning data, testing models,
-                        then putting results into a simple app or dashboard. Outside class and client work,
-                        I coach students in computing and statistics.
-                    </p>
+        <!-- SKILLS -->
+        <section class="band" id="skills">
+            <div class="wrap">
+                <div class="section-top">
+                    <p class="kicker">Competencies</p>
+                    <h2>Core skills &amp; toolkit</h2>
+                </div>
+                <div class="skills-bento">
+                    <article class="skill-box box-a">
+                        <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Programming languages</h3>
+                        <ul class="chip-list">
+                            <li>Python (Pandas, NumPy, Scikit-Learn)</li>
+                            <li>Python (Matplotlib, Seaborn)</li>
+                            <li>R Studio (Tidyverse, Caret)</li>
+                            <li>SQL (PostgreSQL, MySQL)</li>
+                            <li>JavaScript</li>
+                            <li>HTML5 &amp; CSS3</li>
+                        </ul>
+                    </article>
+                    <article class="skill-box box-b">
+                        <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data science &amp; analytics</h3>
+                        <ul class="chip-list">
+                            <li>Data Extraction</li>
+                            <li>Advanced Data Cleaning</li>
+                            <li>Statistical Modeling</li>
+                            <li>Regression Analysis</li>
+                            <li>Ordinal Logistic Regression</li>
+                            <li>Latent Variable Frameworks</li>
+                            <li>Quantitative Research</li>
+                            <li>Predictive Analytics</li>
+                            <li>Data Entity Management</li>
+                        </ul>
+                    </article>
+                    <article class="skill-box box-c">
+                        <h3><i class="fa-solid fa-cloud" aria-hidden="true"></i> Tools &amp; cloud platforms</h3>
+                        <ul class="chip-list">
+                            <li>Microsoft Excel (Advanced Visualizations/Pivots)</li>
+                            <li>Tableau</li>
+                            <li>Power BI</li>
+                            <li>Git &amp; GitHub</li>
+                            <li>Render</li>
+                            <li>Vercel</li>
+                            <li>Linux/Unix Environments</li>
+                        </ul>
+                    </article>
+                    <article class="skill-box box-d">
+                        <h3><i class="fa-solid fa-handshake" aria-hidden="true"></i> Methodologies &amp; soft skills</h3>
+                        <ul class="chip-list">
+                            <li>Technical System Training</li>
+                            <li>Academic Coaching</li>
+                            <li>Agile Development</li>
+                            <li>UI/UX Optimization</li>
+                            <li>Cross-functional Collaboration</li>
+                            <li>Data-Driven Problem Solving</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="section section-tint" id="skills">
-            <div class="section-head">
-                <p class="section-tag">Skills</p>
-                <h2>What I bring to a project</h2>
+        <!-- EXPERIENCE -->
+        <section class="wrap section" id="experience">
+            <div class="section-top">
+                <p class="kicker">Chronology</p>
+                <h2>Professional experience</h2>
             </div>
-            <div class="skills-grid">
-                <article class="skill-card">
-                    <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data science</h3>
-                    <ul>
-                        <li>Python (Pandas, NumPy, Scikit-Learn)</li>
-                        <li>R Studio for statistical work</li>
-                        <li>Regression and predictive models</li>
-                        <li>Exploratory analysis &amp; reporting</li>
-                    </ul>
+            <div class="jobs">
+                <article class="job">
+                    <div class="job-side">
+                        <time datetime="2025-10">October 2025 – Present</time>
+                        <span class="job-mark"></span>
+                    </div>
+                    <div class="job-body">
+                        <h3>Software Developer (Web Architecture)</h3>
+                        <p class="org">Balqees Investment | Dar es Salaam, Tanzania</p>
+                        <ul>
+                            <li>Design, engineer, and continuously maintain highly responsive full-stack enterprise web ecosystems, guaranteeing clean database query optimizations, structural modularity, and rapid rendering capabilities.</li>
+                            <li>Oversee and manage secure automated continuous integration and deployment pipelines (CI/CD) utilizing specialized environments like Render and Vercel, increasing uptime metrics and web performance scaling.</li>
+                            <li>Architect relational entity-relationship database backend models, prioritizing completely secure modern extraction techniques, strict data parameters, and bulletproof web API integrations.</li>
+                            <li>Directed deep visual user interface optimization and responsiveness tracks, systematically troubleshooting core layout bottlenecks to dramatically maximize accessibility and dark mode user readability metrics.</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="skill-card">
-                    <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Data &amp; databases</h3>
-                    <ul>
-                        <li>SQL (PostgreSQL, MySQL)</li>
-                        <li>Cleaning and preparing datasets</li>
-                        <li>Excel for operational analysis</li>
-                        <li>Dashboards in Tableau / Power BI</li>
-                    </ul>
+
+                <article class="job">
+                    <div class="job-side">
+                        <time datetime="2024-10">October 2024 – July 2026</time>
+                        <span class="job-mark"></span>
+                    </div>
+                    <div class="job-body">
+                        <h3>Academic Coach &amp; Professional Trainer</h3>
+                        <p class="org">Millicent Igogo Coaching | Dar es Salaam, Tanzania</p>
+                        <ul>
+                            <li>Delivered advanced, specialized academic training tracks across rigorous computing architecture, logic foundations, and mathematical statistics curriculums to optimize professional-grade competence.</li>
+                            <li>Formulated and implemented structured interactive learning repositories, technical code labs, and custom numeric evaluation metrics leveraging Python and R to elevate student practical capabilities.</li>
+                            <li>Analyzed granular student performance parameters via descriptive statistical models to diagnose deep conceptual barriers, formulating agile target methodologies that measurably enhanced educational outcome metrics.</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="skill-card">
-                    <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Building systems</h3>
-                    <ul>
-                        <li>FastAPI, Django, Flask</li>
-                        <li>Laravel (PHP) for larger apps</li>
-                        <li>HTML, CSS, JavaScript front ends</li>
-                        <li>Git, Vercel, and Render deploys</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <h3><i class="fa-solid fa-people-group" aria-hidden="true"></i> Working with people</h3>
-                    <ul>
-                        <li>Training and academic coaching</li>
-                        <li>Turning findings into clear next steps</li>
-                        <li>English and Kiswahili</li>
-                        <li>Team and client collaboration</li>
-                    </ul>
+
+                <article class="job">
+                    <div class="job-side">
+                        <time datetime="2024-07">Jul 2024 – Oct 2024 &amp; Jul 2025 – Oct 2025</time>
+                        <span class="job-mark"></span>
+                    </div>
+                    <div class="job-body">
+                        <h3>Tax Officer (Field training)</h3>
+                        <p class="org">Tanzania Revenue Authority (TRA) | Dar es Salaam, Tanzania</p>
+                        <ul>
+                            <li>Executed end-to-end data extraction and comprehensive tax analysis workflows across high-volume institutional financial records to identify compliance discrepancies and optimize systemic revenue collections.</li>
+                            <li>Conducted rigorous data cleaning, database validation, and data entity verification protocols on highly complex tax datasets, significantly maximizing institutional reporting integrity and minimizing internal audit cycles.</li>
+                            <li>Performed systematic tax examinations and statistical audits on structural corporate and individual asset filings, guaranteeing completely strict alignment with regional revenue laws and compliance frameworks.</li>
+                            <li>Leveraged advanced analytical Excel macros and statistical indexing frameworks to map systemic patterns within historical tax logs, enabling team leaders to promptly identify potential financial risk metrics.</li>
+                        </ul>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <section class="section" id="experience">
-            <div class="section-head">
-                <p class="section-tag">Experience</p>
-                <h2>Where I’ve been working</h2>
-            </div>
-            <div class="timeline">
-                <article class="job">
-                    <div class="job-meta">
-                        <time datetime="2025-10">Oct 2025 — Present</time>
-                        <span>Balqees Investment · Dar es Salaam</span>
+        <!-- EDUCATION -->
+        <section class="band" id="education">
+            <div class="wrap">
+                <div class="section-top">
+                    <p class="kicker">Credentials</p>
+                    <h2>Education history</h2>
+                </div>
+                <article class="edu-card">
+                    <div class="edu-when">
+                        <time datetime="2023-10">Oct 2023 – Oct 2026</time>
                     </div>
-                    <h3>Software Developer</h3>
-                    <p>
-                        I build and maintain web systems for the business — databases, APIs, and interfaces —
-                        and help keep deployments running on Render and Vercel.
-                    </p>
-                </article>
-                <article class="job">
-                    <div class="job-meta">
-                        <time datetime="2024-10">Oct 2024 — Jul 2026</time>
-                        <span>Millicent Igogo Coaching · Dar es Salaam</span>
+                    <div class="edu-copy">
+                        <h3>Bachelor of Science in Data Science</h3>
+                        <p class="org">Eastern Africa Statistical Training Centre (EASTC) | Dar es Salaam, Tanzania</p>
+                        <p class="edu-label">Core academic focus:</p>
+                        <ul class="focus-row">
+                            <li>Advanced Mathematical Statistics &amp; Probability Systems</li>
+                            <li>Relational Database Design (SQL)</li>
+                            <li>Big Data Engineering Frameworks</li>
+                            <li>Time Series Diagnostics &amp; Predictive Analytics Models</li>
+                        </ul>
                     </div>
-                    <h3>Academic Coach &amp; Trainer</h3>
-                    <p>
-                        I teach computing and statistics foundations, set up practice labs in Python and R,
-                        and use simple performance tracking to see where students need more support.
-                    </p>
-                </article>
-                <article class="job">
-                    <div class="job-meta">
-                        <time datetime="2024-07">Jul–Oct 2024 &amp; Jul–Oct 2025</time>
-                        <span>Tanzania Revenue Authority (TRA)</span>
-                    </div>
-                    <h3>Tax Officer — Field Training</h3>
-                    <p>
-                        During field training I worked with tax records: extracting data, checking quality,
-                        and using Excel analysis to spot patterns that matter for compliance reviews.
-                    </p>
                 </article>
             </div>
         </section>
 
-        <section class="section section-tint" id="projects">
-            <div class="section-head">
-                <p class="section-tag">Projects</p>
-                <h2>Things I’ve built</h2>
-                <p class="section-note">A mix of machine learning, research, and full systems I’ve shipped or prototyped.</p>
+        <!-- PROJECTS -->
+        <section class="wrap section" id="projects">
+            <div class="section-top">
+                <p class="kicker">Case studies</p>
+                <h2>Featured architecture</h2>
             </div>
-
-            <div class="projects">
-                <article class="project project-large">
-                    <p class="project-tag">Credit risk · Machine learning</p>
-                    <h3>Ushirika — SME Credit Platform</h3>
-                    <p>
-                        A credit platform for Tanzanian SMEs. It scores risk with a Python/FastAPI backend
-                        and gives lenders and admins a clean web portal. Live on Vercel with the API on Render.
-                    </p>
-                    <ul class="tags">
-                        <li>Python</li>
-                        <li>FastAPI</li>
-                        <li>Scikit-Learn</li>
-                        <li>Vite</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://ushirika-sme-portal.vercel.app" target="_blank" rel="noopener noreferrer">Open live site</a>
-                        <a href="https://github.com/Dmmkuliku/ushirika-sme-credit" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div class="project-stage">
+                <article class="project-card">
+                    <div class="project-icon tone-1"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>KodiPop System Architecture</h3>
+                        <p class="project-tag">Tanzania Revenue Authority (TRA) Automation Initiative</p>
+                        <p>
+                            An advanced innovation proposal engineered to streamline, track, and optimize tax metrics through customized data extraction architectures. The platform layout maps structural human resources blueprints alongside secure back-end automation processes, completely scoped and scheduled to fit a rigorous 6-week execution timeline.
+                        </p>
                     </div>
                 </article>
 
-                <article class="project project-large">
-                    <p class="project-tag">Hospital operations</p>
-                    <h3>Savannah Health System</h3>
-                    <p>
-                        A hospital information system for Tanzanian facilities: patients, wards, pharmacy,
-                        billing in TZS, and staff roles in English and Kiswahili. Built with Laravel and deployed on the cloud.
-                    </p>
-                    <ul class="tags">
-                        <li>Laravel</li>
-                        <li>MySQL / PostgreSQL</li>
-                        <li>Tailwind</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://savannah-health-system.vercel.app" target="_blank" rel="noopener noreferrer">Open live site</a>
-                        <a href="https://github.com/Dmmkuliku/savannah-health-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <article class="project-card">
+                    <div class="project-icon tone-2"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Blessing Mall Supermarket Management System</h3>
+                        <p class="project-tag">Commercial Management Platform</p>
+                        <p>
+                            A modern enterprise inventory and sales tracking framework deployed for Blessing Mall. Features integrated barcode scanning parameters, full point-of-sale calculations, real-time stock levels logging, and automatic month-end sales data visualization reports.
+                        </p>
                     </div>
                 </article>
 
-                <div class="project-grid">
-                    <article class="project">
-                        <p class="project-tag">Tax · TRA context</p>
-                        <h3>KodiPop</h3>
+                <article class="project-card">
+                    <div class="project-icon tone-3"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Healthcare Analytics &amp; Hospital Operations Tracker</h3>
+                        <p class="project-tag">Data-Driven Resource Analytics</p>
                         <p>
-                            An idea and design for helping micro-merchants with presumptive tax reporting —
-                            shaped by what I saw during TRA field training.
+                            An analytical system model focused on parsing complex hospital database frameworks. Leverages comprehensive data cleaning protocols to identify operational gaps, streamline resource management tracking logs, and support clinical stakeholders with high-integrity statistical insight.
                         </p>
-                    </article>
-                    <article class="project">
-                        <p class="project-tag">Retail</p>
-                        <h3>Blessing Mall POS</h3>
-                        <p>
-                            Point-of-sale and inventory software with barcode scanning, stock tracking,
-                            and month-end sales reports for a supermarket.
-                        </p>
-                    </article>
-                    <article class="project">
-                        <p class="project-tag">Research</p>
-                        <h3>Food security analytics</h3>
-                        <p>
-                            Research work using ordinal logistic regression on categorical data
-                            around food security and health institutions.
-                        </p>
-                    </article>
-                    <article class="project">
-                        <p class="project-tag">This website</p>
-                        <h3>Portfolio on Vercel + Render</h3>
-                        <p>
-                            The site you’re on now — static front end on Vercel, contact form backed by
-                            a small Node API on Render.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/Dmmkuliku/Cloud" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="band contact-band" id="contact">
+            <div class="wrap">
+                <div class="section-top">
+                    <p class="kicker">Engagement</p>
+                    <h2>Initialize connection</h2>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-left">
+                        <div class="console">
+                            <div class="console-bar">
+                                <span class="c-dot red"></span>
+                                <span class="c-dot yellow"></span>
+                                <span class="c-dot green"></span>
+                                <span class="console-name">api_handshake_service.py</span>
+                            </div>
+                            <div class="console-body">
+                                <p id="api-message" class="console-log">&gt; ready to initialize secure communication handshake tunnel...</p>
+                                <button type="button" class="btn-console" onclick="getBackendMessage()">
+                                    <i class="fa-solid fa-terminal" aria-hidden="true"></i> run_api_handshake.sh
+                                </button>
+                            </div>
                         </div>
-                    </article>
+
+                        <div class="channel-row">
+                            <a class="channel whatsapp" href="https://wa.me/255655786630" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp
+                            </a>
+                            <a class="channel sms" href="sms:+255655786630">
+                                <i class="fa-solid fa-comment-sms" aria-hidden="true"></i> Send SMS
+                            </a>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="field">
+                            <label for="name">Full name / organization</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-user field-icon" aria-hidden="true"></i>
+                                <input type="text" id="name" name="name" required maxlength="120" placeholder="Your name or organization">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="email">Secure contact email address</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-envelope field-icon" aria-hidden="true"></i>
+                                <input type="email" id="email" name="email" required maxlength="160" placeholder="you@email.com">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="message">Project objectives / collaboration scope</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-message field-icon top" aria-hidden="true"></i>
+                                <textarea id="message" name="message" required maxlength="4000" placeholder="Tell me what you need help with..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-wide">
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Transmit secure request
+                        </button>
+                        <div id="formResponse" class="form-banner" hidden role="status" aria-live="polite"></div>
+                    </form>
                 </div>
-            </div>
-        </section>
-
-        <section class="section" id="education">
-            <div class="section-head">
-                <p class="section-tag">Education</p>
-                <h2>My studies</h2>
-            </div>
-            <article class="edu">
-                <div class="edu-top">
-                    <h3>Bachelor of Science in Data Science</h3>
-                    <time datetime="2023-10">Oct 2023 — Oct 2026</time>
-                </div>
-                <p class="edu-place">Eastern Africa Statistical Training Centre (EASTC) · Dar es Salaam</p>
-                <p>
-                    Coursework covers mathematical statistics, databases, multivariate analysis,
-                    predictive analytics, and related computing subjects.
-                </p>
-            </article>
-        </section>
-
-        <section class="section section-tint" id="contact">
-            <div class="section-head">
-                <p class="section-tag">Contact</p>
-                <h2>Let’s talk</h2>
-                <p class="section-note">Happy to discuss roles, freelance work, or collaboration.</p>
-            </div>
-
-            <div class="contact-grid">
-                <aside class="contact-info">
-                    <a href="mailto:raymondtungaraza20@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> raymondtungaraza20@gmail.com</a>
-                    <a href="tel:+255655786630"><i class="fa-solid fa-phone" aria-hidden="true"></i> +255 655 786 630</a>
-                    <a href="https://github.com/Dmmkuliku" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> github.com/Dmmkuliku</a>
-                    <p class="location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Changanyikeni, Dar es Salaam</p>
-                    <div class="quick-row">
-                        <a href="https://wa.me/255655786630" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-                        <a href="sms:+255655786630" class="btn btn-outline"><i class="fa-solid fa-comment-sms" aria-hidden="true"></i> SMS</a>
-                    </div>
-                </aside>
-
-                <form id="contactForm" class="contact-form" novalidate>
-                    <div class="field">
-                        <label for="name">Your name</label>
-                        <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required placeholder="Name or organisation">
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@email.com">
-                    </div>
-                    <div class="field">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" maxlength="4000" required placeholder="What are you working on, and how can I help?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send message</button>
-                    <div id="formResponse" class="form-response" hidden role="status" aria-live="polite"></div>
-                </form>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>© <span id="year">2026</span> Raymond Elphance Tungaraza</p>
+        <p class="copy">© <span id="year">2026</span> Raymond Elphance Tungaraza. All rights reserved.</p>
+        <p class="disclaimer">Data Science Architecture &amp; Engineering Portfolio. Custom engineered with separation paradigms, secure endpoints, and modular code tracking layouts.</p>
     </footer>
 
     <script>
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('theme-switcher');
         const menuBtn = document.getElementById('menu-icon');
         const navLinks = document.getElementById('nav-links');
+
         document.getElementById('year').textContent = String(new Date().getFullYear());
 
+        const saved = localStorage.getItem('rt-theme');
+        if (saved === 'dark' || saved === 'light') html.setAttribute('data-theme', saved);
+
+        themeBtn.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('rt-theme', next);
+        });
+
         menuBtn.addEventListener('click', () => {
-            const open = navLinks.classList.toggle('open');
+            const open = navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('open', open);
             menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
 
-        navLinks.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
+        navLinks.querySelectorAll('a').forEach((a) => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('open');
                 menuBtn.setAttribute('aria-expanded', 'false');
             });
         });
 
-        const form = document.getElementById('contactForm');
-        const responseDiv = document.getElementById('formResponse');
-        const API_URL = 'https://portfolio-backend-c4ey.onrender.com/api/contact';
+        function getBackendMessage() {
+            const messageParagraph = document.getElementById('api-message');
+            messageParagraph.style.color = '';
+            messageParagraph.textContent = '> Fetching response parameters...';
 
-        function showResponse(kind, html) {
-            responseDiv.hidden = false;
-            responseDiv.className = 'form-response is-' + kind;
-            responseDiv.innerHTML = html;
+            fetch('https://portfolio-backend-c4ey.onrender.com/')
+                .then((response) => {
+                    if (!response.ok) throw new Error('Network status execution fault');
+                    return response.text();
+                })
+                .then((text) => {
+                    messageParagraph.style.color = '#2ecc71';
+                    messageParagraph.textContent = `> Connected! Server status: "${text}"`;
+                })
+                .catch((error) => {
+                    console.error(error);
+                    messageParagraph.style.color = '#e74c3c';
+                    messageParagraph.textContent = '> Communication error. Render container sleeping or offline.';
+                });
         }
 
-        form.addEventListener('submit', async (e) => {
+        const form = document.getElementById('contactForm');
+        const responseDiv = document.getElementById('formResponse');
+
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
 
-            if (!name || !email || !message) {
-                showResponse('error', 'Please fill in all fields.');
-                return;
-            }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showResponse('error', 'Please enter a valid email.');
-                return;
-            }
+            responseDiv.hidden = false;
+            responseDiv.className = 'form-banner is-pending';
+            responseDiv.textContent = 'Processing data on custom backend...';
 
-            showResponse('pending', 'Sending…');
+            const payload = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                message: document.getElementById('message').value.trim()
+            };
 
-            try {
-                const res = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
+            fetch('https://portfolio-backend-c4ey.onrender.com/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(async (response) => {
+                    if (response.ok) {
+                        responseDiv.className = 'form-banner is-ok';
+                        responseDiv.textContent = "Transmission saved successfully on Raymond's Render database!";
+                        form.reset();
+                    } else {
+                        responseDiv.className = 'form-banner is-error';
+                        responseDiv.textContent = 'Backend server processing exception encountered.';
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    responseDiv.className = 'form-banner is-error';
+                    responseDiv.textContent = 'Communication error. Render container sleeping or offline.';
                 });
-
-                if (res.ok) {
-                    showResponse('ok', 'Thanks — your message was sent. I’ll get back to you soon.');
-                    form.reset();
-                } else {
-                    const data = await res.json().catch(() => ({}));
-                    showResponse('error', data.error || 'Something went wrong. Please try again.');
-                }
-            } catch (err) {
-                console.error(err);
-                showResponse('error', 'Could not reach the server. Email or WhatsApp me instead.');
-            }
         });
     </script>
 </body>
